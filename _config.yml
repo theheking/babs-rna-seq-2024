@@ -42,15 +42,15 @@ navbar-links:
     - Week 10 Explaining DE: "practical_overview/Week10_Explaining_DE_GeneOntology"
     
   Tutorial Overview:
-    - Week 1: "tutorial_overview_1/week1"
-    - Week 2: "tutorial_overview_1/week2"
-    - Week 3: "tutorial_overview_1/week3"
-    - Week 4: "tutorial_overview_1/week4"
-    - Week 5: "tutorial_overview_1/week5"
-    - Week 6: "tutorial_overview_1/week6"
-    - Week 7: "tutorial_overview_1/week7"
-    - Week 8: "tutorial_overview_1/week8"
-    - Week 9: "tutorial_overview_1/week9"
+    - Week 1: "tutorial_overview/week1"
+    - Week 2: "tutorial_overview/week2"
+    - Week 3: "tutorial_overview/week3"
+    - Week 4: "tutorial_overview/week4"
+    - Week 5: "tutorial_overview/week5"
+    - Week 6: "tutorial_overview/week6"
+    - Week 7: "tutorial_overview/week7"
+    - Week 8: "tutorial_overview/week8"
+    - Week 9: "tutorial_overview/week9"
 
 
   Key Information: "key_info"

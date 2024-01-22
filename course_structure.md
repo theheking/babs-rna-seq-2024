@@ -33,5 +33,5 @@ Attendance in practicals & tutorials is compulsory unless otherwise announced or
 
 # Practical and Tutorial Schedule
 
-*** INSERT DATAFRAME ABOUT ALLOCATION OF MARKS ***
+*** EDIT: INSERT DATAFRAME ABOUT ALLOCATION OF MARKS ***
 

@@ -13,6 +13,10 @@ Setting Up on Katana
 > 
 > *   Setting up your local computer for analysis
 >   
+> *   Open operating system specific terminal
+>   
+> *   Log in to the Garvan wolfpack server
+>   
 
 
 

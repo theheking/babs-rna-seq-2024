@@ -68,7 +68,7 @@ Let’s search for the string NNNNNNNNNN in the SRR2589044_1 file:
 
 This command returns a lot of output to the terminal. Every single line in the SRR098026 file that contains at least 10 consecutive Ns is printed to the terminal, regardless of how long or short the file is. We may be interested not only in the actual sequence which contains this string, but in the name (or identifier) of that sequence. We discussed in a previous lesson that the identifier line immediately precedes the nucleotide sequence for each read in a FASTQ file. We may also want to inspect the quality scores associated with each of these reads. To get all of this information, we will return the line immediately before each match and the two lines immediately after each match.
 
-We can use the `-B` argument for grep to return a specific number of lines before each match. The `-A` argument returns a specific number of lines after each matching line. Here we want the line _before_ and the two lines _after_ each matching line, so we add `-B1 -A2` to our grep command:
+We can use the `-B` argument for grep to return a specific number of lines before each match. The `-A` argument returns a specific number of lines after each matching line. Here we want the line _above_ and the two lines _below_ each matching line, so we add `-B1 -A2` to our grep command:
 
     $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1.fastq
     

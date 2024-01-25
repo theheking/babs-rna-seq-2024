@@ -45,14 +45,16 @@ We’ll search for strings inside of our fastq files. Let’s first make sure we
 Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
 
 
-## Note on FASTA Files
-![Permissions breakdown](../assets/img/illumina.png)
 For each cluster that passes filter, a single sequence is written to the corresponding sample’s R1 FASTQ file, and, for a paired-end run, a single sequence is also written to the sample’s R2 FASTQ file. Each entry in a FASTQ files consists of 4 lines:
 
 > - A sequence identifier with information about the sequencing run and the cluster. The exact contents of this line vary by based on sequencer used.
 > - The sequence (the base calls; A, C, T, G and N).
 > - A separator, which is simply a plus (+) sign.
 > - The base call quality scores. 
+
+
+## Note on FASTA Files
+![Permissions breakdown](../assets/img/illumina.png)
 
 
 > Determining quality
@@ -179,6 +181,8 @@ The fifth and six lines in the output display “–” which is the default act
     
 
 The `-v` option in the second `grep` search stands for `--invert-match` meaning `grep` will now only display the lines which do not match the searched pattern, in this case `'^--'`. The caret (`^`) is an **anchoring** character matching the beginning of the line, and the pattern has to be enclose by single quotes so `grep` does not interpret the pattern as an extended option (starting with –).
+
+
 
 > Custom `grep` control
 > ---------------------

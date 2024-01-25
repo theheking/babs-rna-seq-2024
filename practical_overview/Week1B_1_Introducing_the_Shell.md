@@ -54,6 +54,12 @@ On a Mac or Linux machine, you can access a shell through a program called “Te
 
 To save time, we are going to be working on a remote server where all the necessary data and software available. When we say a ‘remote sever’, we are talking about a computer that is not the one you are working on right now. This is Katana where the login instructions are Week 1A.
 
+Bash
+-----
+
+There is a range of different scripting languages. We are learning and using bash but there are other scripting languages that bioinformaticians are usually familiar with R and Python. 
+
+
 Clear Screen
 -------------
 

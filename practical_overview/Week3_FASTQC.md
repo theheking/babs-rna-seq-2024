@@ -152,7 +152,7 @@ we can now see that there is a range of quality scores, but that the end of the 
 Loading a new function
 ------------------------
 
-Try and run fastqc to see if it is available, if not we will "load" into your local path. 
+Try and run fastqc to see if it is available, if not we will "load" it for your user. 
    
     $ fastqc
 

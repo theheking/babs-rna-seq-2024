@@ -96,7 +96,7 @@ Whenever working with servers, there is always the risk that something will go w
 ### Writing notes and code
 Usually in your other courses, you would write notes in Microsoft Word but that is not ideal for when you are writing code. The reason is that the formatting will not be able to copy and paste from Word to the Terminal. 
 
-Please use a code editor like **VS Codes** to write your notes and code. This can be used by either installing (VSCodes)[https://code.visualstudio.com] on your computer or use the (online interface)[https://vscode.dev] if you have less space available, or the installation is not working. 
+Please use a code editor like **VS Codes** to write your notes and code. This can be used by either installing [VSCodes](https://code.visualstudio.com) on your computer or use the [online interface](https://vscode.dev) if you have less space available, or the installation is not working. 
 
 ### Extension Task 
 If you have any extra time here are a couple of things to do to make your login and navigating around your user login easier. 

@@ -6,6 +6,13 @@ title: Key Infomation
 Welcome to the bioinformatics practical for BABS3291 Genes, Genome and Evolution. The material in this handbook is designed to help guide you through the practical.
 
 
+> 
+> **Tutorial Objectives**
+> 
+> *   Find differentialy expressed genes between control and disease
+>     
+> *   Introduce and start to get familiar with command line to perform analysis on computational clusters
+>     
 
 ### Key to How Infomation will be Displayed
 Exploratory text

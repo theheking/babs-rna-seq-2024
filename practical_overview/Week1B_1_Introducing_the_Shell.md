@@ -89,7 +89,7 @@ Basic Commands - Where am I?
 
 The dollar sign is a **prompt**, which shows us that the shell is waiting for input; your shell may use a different character as a prompt and may add information before the prompt. When typing commands, either from these lessons or from other sources, do not type the prompt, only the commands that follow it.
 
-Let’s find out where we are by running a command called `pwd` (which stands for “print working directory”). At any moment, our **current working directory** is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is `/home/[your_zID]`, which is the top level directory within our cloud system:
+Let’s find out where we are by running a command called `pwd` (which stands for “print working directory”). At any moment, our **current working directory** is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is `/home/zID`, which is the top level directory within our cloud system:
 
     $ pwd
   
@@ -111,7 +111,7 @@ On the Katana HPC, you will have two locations:
     
     
 2. Scratch - where to keep large files 
-    - Your scratch is /srv/scratch/[insert your zID here]
+    - Your scratch is /srv/scratch/zID
     - Large space, regularly cleaned of old files 
 
 The command to change locations in our file system is `cd`, followed by a directory name to change our working directory. `cd` stands for “change directory”.
@@ -167,7 +167,7 @@ Here we are using the -p option for mkdir. This option allows mkdir to create th
 It will take about 5 minutes to download the files.
 **NB. Please make sure you are in your scratch directory **
 
-    $   mkdir -p [yourscratch]/data/
+    $   mkdir -p /srv/scratch/zID/data/
     $   cd data
 
     $   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_1.fastq.gz

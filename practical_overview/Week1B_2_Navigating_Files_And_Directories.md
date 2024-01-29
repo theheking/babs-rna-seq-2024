@@ -37,7 +37,7 @@ We’ve learned how to use `pwd` to find our current location within our file sy
 
 Use the commands we’ve learned so far to navigate to the `data` directory, if you’re not already there.
 
-    $ cd [your scratch directory]
+    $ cd /srv/scratch/zID
     $ cd data
     
 
@@ -126,7 +126,7 @@ The `cd` command takes an argument which is a directory name. Directories can be
 
 Now enter the following command:
 
-    $ cd [scratch location]/data
+    $ cd /srv/scratch/zID/data
     
 
 These two commands have the same effect, they both take us to the `data` directory. The first uses the absolute path, giving the full address from the home directory. The second uses a relative path, giving only the address from the working directory. A full path always starts with a `/`. A relative path does not.

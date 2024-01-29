@@ -42,7 +42,7 @@ Now that we know how to navigate around our directory structure, let’s start w
 
 Navigate to your `data` directory:
 
-    $ cd [scratch location]/data
+    $ cd /srv/scratch/zID/data
     
 
 We are interested in looking at the FASTQ files in this directory. We can list all files with the .fastq.gz extension using the command:
@@ -85,7 +85,7 @@ to see a numbered list of recent commands. You can reuse one of these commands d
 For example, if your history looked like this:
 
     259  ls *
-    260  ls /srv/scratch/*.fastq.gz
+    260  ls /srv/scratch/data/*.fastq.gz
     261  ls *R1*fastq.gz
     
 

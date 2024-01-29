@@ -98,6 +98,7 @@ Usually in your other courses, you would write notes in Microsoft Word but that 
 
 Please use a code editor like **VS Codes** to write your notes and code. This can be used by either installing [VSCodes](https://code.visualstudio.com) on your computer or use the [online interface](https://vscode.dev) if you have less space available, or the installation is not working. 
 
+
 ### Extension Task 
 If you have any extra time here are a couple of things to do to make your login and navigating around your user login easier. 
 

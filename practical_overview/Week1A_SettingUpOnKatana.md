@@ -98,6 +98,9 @@ Usually in your other courses, you would write notes in Microsoft Word but that 
 
 Please use a code editor like **VS Codes** to write your notes and code. This can be used by either installing [VSCodes](https://code.visualstudio.com) on your computer or use the [online interface](https://vscode.dev) if you have less space available, or the installation is not working. 
 
+### Optional Cheatsheet for you to fill out
+If you would like to fill out a cheatsheet for every command that you use and learn. Please find this document attached as either a [PDF](https://github.com/theheking/babs-rna-seq-2024/blob/e7d091151545ca9da49a625995385348579b3df5/docs/Unix%20Cheatsheet.pdf) or [Word document](https://github.com/theheking/babs-rna-seq-2024/blob/e7d091151545ca9da49a625995385348579b3df5/docs/Unix%20Cheatsheet.docx).
+
 
 ### Extension Task 
 If you have any extra time here are a couple of things to do to make your login and navigating around your user login easier. 

@@ -147,6 +147,8 @@ Enter the following command:
     
 
 Some navigation commands in `less`:
+
+
 | key   | action                 |
 | ----- | ---------------------- |
 | Space | to go forward          |

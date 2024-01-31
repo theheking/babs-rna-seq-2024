@@ -114,11 +114,11 @@ Running Trimmomatic
 
 Now we will run Trimmomatic on our data. To begin, navigate to the data directory that contains your untrimmed fastq files:
 
-    $ cd /[yourscratch]/data/
+    $ cd /srv/scratch/zID/babs3291/
 
 We are going to run Trimmomatic on one of my single-end samples. While using FastQC we saw that TruSeq adapters were present in our samples. The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
-    $ scp -r /srv/scratch/babs3291/adapters/ [yourscratch]
+    $ scp -r /srv/scratch/babs3291/adapters/ /srv/scratch/zID/babs3291/
     
 
 
@@ -129,13 +129,13 @@ The adapter sequence you should specify with be dependent on:
 
 Please look at the possible adapters that can be used for the adapter sequences 
 
-    $ ls /[yourscratch]/adapters
+    $ ls /srv/scratch/zID/babs3291/adapters
     
     $ NexteraPE-PE.fa  TruSeq2-PE.fa  TruSeq2-SE.fa  TruSeq3-PE.fa  TruSeq3-PE-2.fa  TruSeq3-SE.fa
 
 If you look at the content inside one of these fasta files. You will realise it is filled with short sequences of oligonucleotides.
 
-    $ head /[yourscratch]/adapters/NexteraPE-PE.fa
+    $ head /srv/scratch/zID/babs3291/adapters/NexteraPE-PE.fa
     
     $ >PrefixNX/1
     $ AGATGTGTATAAGAGACAG
@@ -152,7 +152,7 @@ We will also use a sliding window of size 4 that will remove bases if their phre
 
 This command will take a few minutes to run.
 
-    $ ADAPTERSEQ="[yourscratch]/adapters/TruSeq2-SE.fa"
+    $ ADAPTERSEQ="srv/scratch/zID/babs3291/adapters/TruSeq2-SE.fa"
     $ trimmomatic SE -phred33 SRR306844chr1_chr3.fastq.gz \
                     SRR306844chr1_chr3.trim.fastq.gz \
                     ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
@@ -171,7 +171,7 @@ This command will take a few minutes to run.
 
 
  A way of thinking about the files you are using 
- If you have paired end sequences you should run the command from before. 
+ If you have paired end sequences, you should run the command from before. 
  
      $ trimmomatic PE -threads 4 SRR_1056_1.fastq.gz SRR_1056_2.fastq.gz  \
                   SRR_1056_1.trimmed.fastq.gz SRR_1056_1un.trimmed.fastq.gz \
@@ -187,7 +187,7 @@ This command will take a few minutes to run.
 > 
 > 1) What percent of reads did you discard from your sample? 
 > 2) What percent of reads did we keep both pairs?
-> 3) What biological samples are more likely to have a higher percentage trimming? 
+> 3) What biological samples are more likely to have a higher percentage of trimming? 
 
     
     
@@ -198,7 +198,7 @@ We can confirm that we have our output files:
     $ ls SRR306844*
     
 
-The output files are also FASTQ files. It should be smaller than our input file, because we have removed reads. We can confirm this:
+The output files are also FASTQ files. It should be smaller than our input file because we have removed reads. We can confirm this:
 
     $ ls -lh SRR306844*
 
@@ -250,11 +250,11 @@ If you have a paired end sequence the for loop with be different...
 >
     
 
-We have now completed the trimming and filtering steps of our quality control process! Before we move on, let’s move our trimmed FASTQ files to a new subdirectory within our `data` directory.
+We have now completed the trimming and filtering steps of our quality control process! Before we move on, let’s move our trimmed FASTQ files to a new subdirectory within our `babs3291` directory.
 
-    $ cd /srv/scratch/z5342988/data/
-    $ mkdir TRIMMED_FASTQ
-    $ mv ./UNTRIMMED_FASTQ/*.trim* TRIMMED_FASTQ
+    $ cd /srv/scratch/z5342988/babs3291/
+    $ mkdir trimmed_fastq
+    $ mv ./untrimmed_fastq/*.trim* trimmed_fastq
     $ ls
     
 

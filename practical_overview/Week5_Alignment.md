@@ -141,11 +141,11 @@ We can immediately eliminate transcripts that don’t contain the letter D:
 >Transcript 5: ZNEQDNAHXMPBLRVDEBJRJFTDOIWUPFLSIYOOHNQH
 
 
-Immediately, the problem is made easier by throwing away transcripts that could not contain the answer. This is not an exact analogy but basically, rather than trying to match every read to every position in the genome, Kallisto is faster because 1) we are only matching to the transcriptome (a subset of the genome) and 2) we focus only on transcripts that could have generated a particular read.
+Immediately, the problem is made easier by throwing away transcripts that could not contain the answer. This is not an exact analogy, but basically, rather than trying to match every read to every position in the genome, Kallisto is faster because 1) we are only matching to the transcriptome (a subset of the genome) and 2) we focus only on transcripts that could have generated a particular read.
 
 
 > Note
-Pseudoalignment is just one approach to aligning RNA-Seq reads. Other software will do full alignments of the read to a transcriptome or genome. These methods have different advantages and requirements.
+Pseudoalignment is just one approach to aligning RNA-Seq reads. Other software will fully align the read to a transcriptome or genome. These methods have different advantages and requirements.
 
 
 
@@ -153,15 +153,15 @@ Step 1 Genome indexing for Kallisto
 ===================================
 There are a few files we need to perform the first step of Kallisto
 
-- Reference transcriptome: A file of all the known trasncripts of the human genome
+- Reference transcriptome: A file of all the known transcripts of the human genome
 - Reference annotations: A file with information on the location and structure of the genes in the human genome and a file with chromosome details.
   
   
   
 
-We will now use Kallisto's indexing function to prepare the transcriptome for analysis. The "Index" is a lookup table for the transcriptome that allows it to be more easily searched by Kallisto. First let's organize our files by creating a new directory to hold our kallisto work.
+We will now use Kallisto's indexing function to prepare the transcriptome for analysis. The "Index" is a lookup table for the transcriptome that allows it to be more easily searched by Kallisto. First, let's organize our files by creating a new directory to hold our kallisto work.
 
-    $ mkdir -p /srv/scratch/[your_zID]/kallisto_human_ref/
+    $ mkdir -p /srv/scratch/zID/kallisto_human_ref/
  
 First, we must download the reference files from (https://asia.ensembl.org/info/data/ftp/index.html) using `wget`
 
@@ -170,11 +170,11 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
 
       $ wget https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
       
- OR, if the expected download time is ages please copy from the communal folder.
+ OR, if the expected download time is ages, please copy from the communal folder.
  
       $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz /srv/scratch/[your_zID]/kallisto_human_ref/
       
-2. We also will need the human GTF file, a file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
+2. We will also need the human GTF file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
   
         $ wget https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz 
         
@@ -186,22 +186,22 @@ Also, must unzip the gtf above. This will take the gtf from being compressed to 
         
         $ gunzip Homo_sapiens.GRCh38.109.gtf.gz 
       
-First we must load kallisto to our session using `module load` as this is not installed.
+First, we must load Kallisto to our session using `module load` as this is not installed.
 
         $ module load kallisto
 
-Next run the indexing command. This prepares the transcriptome so that we can pseudoalign reads to it.
+Next, run the indexing command. This prepares the transcriptome so that we can pseudoalign reads to it.
   
     $ kallisto index --index=transcriptome_Homo_sapiens_GRCh38 kallisto_human_ref/Homo_sapiens.GRCh38.cdna.all.fa.gz
 
 
 Step 2 Pseudoalignment of reads with Kallisto
 ============================================
-In this final step, we will run Kallisto on all of our files to quantify the reads. We will write a for loop to do this. Let's see once again our trimmed reads
+In this final step, we will run Kallisto on all of our files to quantify the reads. We will write a for loop to do this. Let's see once again our trimmed reads.
 
 Using your trimmed reads
 
-    $ cd /srv/scratch/[your_zID]/trimmed_fastq/
+    $ cd /srv/scratch/zID/babs3291/trimmed_fastq/
   
 All instructions for the commands we are using are in the Kallisto manual: https://pachterlab.github.io/kallisto/manual. Since we are using single read data, we need to provide information on the fragment length used for the library (200) and an estimate of the standard deviation for this value - here we will have to guess (20). 
 
@@ -210,13 +210,12 @@ We need to run Kallisto on all of your files. Run the command below on one of yo
 Single-end:
 
 
-    $ INPUT_FASTA="[yourscratch]/data/SRR306844chr1_chr3.trimmed.fastq.gz"
+    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/SRR306844chr1_chr3.trimmed.fastq.gz"
  
     $ kallisto quant \
      --single\
      --threads=8\
      --index=[insert_location_your transcriptome]\
-     --bootstrap-samples=25\
      --fragment-length=200\
      --sd=20\
      --output-dir=output\
@@ -226,12 +225,11 @@ Single-end:
  
 For paired-end reads, you need two files as input.
 
-    $ INPUT_FASTA="[yourscratch]/data/SRR306844*.trimmed.fastq.gz"
+    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/SRR306844*.trimmed.fastq.gz"
  
     $ kallisto quant \
      --threads=8\
      --index=[insert_location_your_transcriptome] \
-     --bootstrap-samples=25 \
      --output-dir=output\
      --genomebam\
      --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTA}
@@ -240,8 +238,8 @@ For paired-end reads, you need two files as input.
      
 kallisto quant produces three output files by default:
 
-- abundance.h5 is a HDF5 binary file containing run info, abundance esimates, bootstrap estimates, and transcript length information length. This file can be read in by sleuth
-- abundance.tsv is a plaintext file of the abundance estimates. It does not contains bootstrap estimates. Please use the --plaintext mode to output plaintext abundance estimates. Alternatively, kallisto h5dump can be used to output an HDF5 file to plaintext. The first line contains a header for each column, including estimated counts, TPM, effective length.
+- abundance.h5 is an HDF5 binary file containing run info, abundance estimates, bootstrap estimates, and transcript length information length. This file can be read by sleuth
+- abundance.tsv is a plaintext file of the abundance estimates. It does not contain bootstrap estimates. Please use the --plaintext mode to output plaintext abundance estimates. Alternatively, kallisto h5dump can be used to output an HDF5 file to plaintext. The first line contains a header for each column, including estimated counts, TPM, effective length.
 - run_info.json is a json file containing information about the run
  
  Lets have a look at what the file contains a list of abundances (counts) shows. 
@@ -264,7 +262,6 @@ If you have single-end reads.
            --single\
            --threads=8\
            --index=[insert_location_your transcriptome]\
-           --bootstrap-samples=25\
            --fragment-length=200\
            --sd=20\
            --output-dir=${outdir}\
@@ -284,7 +281,6 @@ If you have paired-end reads. **Hint: check the string provided as the second pa
           kallisto quant \
            --threads=8 \
            --index=/srv/scratch/z5342988/transcriptome_Homo_sapiens_GRCh38 \
-           --bootstrap-samples=25 \
            --output-dir=${outdir} \
            --gtf=Homo_sapiens.GRCh38.109.gtf ${infiles}
 

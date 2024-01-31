@@ -59,14 +59,14 @@ Preparing DEGUST Compatible Data
 Log onto katana. Change directory into the location that contains your aligned kallisto output `abundance.tsv`.
 
         $ ssh zID@katana.restech.unsw.edu.au 
-        $ cd /srv/scratch/zID/data/SRR306844chr1_chr3/
+        $ cd /srv/scratch/zID/babs3291/SRR306844chr1_chr3/
         $ ls abundance.tsv
       
 This file contains the counts of one sample. For input into DEGUST, you will have to form a count matrix table.  
 
 Please download this [script](https://github.com/theheking/babs-rna-seq/blob/gh-pages/metadatafiles/merge_abundance_files.sh) using `wget`. In the main folder that you have your kallisto results.
 
-        $ cd /srv/scratch/zID/data/
+        $ cd /srv/scratch/zID/babs3291/
         $ wget https://github.com/theheking/babs-rna-seq/raw/gh-pages/metadatafiles/merge_abundance_files.sh 
         $ bash merge_abundance_files.sh
         This scripts is to concatenate all abundance tsv to form count matrix table

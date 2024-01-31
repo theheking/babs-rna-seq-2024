@@ -61,16 +61,25 @@ The data is single-end sequenced.
 With paired-end sequencing, both ends of the fragment are sequenced. With single-end seuqecing, only one end is of a fragment is sequenced. If the data is paired-end, you have two files for each sample.
 
 
-You will find your FASTA file at  **/srv/scratch/babs3291/**. You will be assigned a chromosome subset and a dataset previously.
+You will find your FASTQ files at  **/srv/scratch/babs3291/**. You will be assigned a chromosome subset and a dataset previously.
 
 To download the data, please:
 
-1) request an interactive session using qsub 
+1) request an interactive session using qsub
 
-2) Use `mkdir` to create a folder for your input fasta file e.g. **UNTRIMMED_FASTA**
+         $ qsub -I   
+
+2)  Use `mkdir` to create a folder to store all your project. 
+ 
+        $ mkdir /srv/scratch/zID/babs3291
+
+3) Use `mkdir` to create a folder for your input fasta file e.g. **UNTRIMMED_FASTQ**
 You can use the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories does not already exist. It also supresses errors if the directory already exists, without overwriting that directory.
 
-3) copy your dataset from the **/srv/scratch/babs3291/** to your local scratch 
+   $ mkdir -p /srv/scratch/zID/babs3291/untrimmed_fastq
+   $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
+
+5) copy your dataset from the **/srv/scratch/babs3291/** to this directory as below.
 
 
 > Important for your unique download 
@@ -144,6 +153,8 @@ we can now see that there is a range of quality scores, but that the end of the 
 > 
 > What is the last read in your file? Is this read of high quality, explain?
 > Hint use command: tail
+>
+> You will often see the use of FASTQ and FASTA interchangeably by bioinformaticians. What is the difference between FASTQ and FASTA files?
 > 
 
 
@@ -319,9 +330,9 @@ Here, we see positions within the read in which the boxes span a much wider rang
 Running FastQC
 --------------
 
-We will now assess the quality of the reads that we downloaded. First, make sure you are still in the `UNTRIMMED_FASTA` directory
+We will now assess the quality of the reads that we downloaded. First, make sure you are still in the `untrimmed_fastq` directory
 
-    $ cd /[yourscratch]/UNTRIMMED_FASTA/
+    $ cd /srv/scratch/zID/untrimmed_fastq/
     
 
 > Exercise
@@ -344,7 +355,7 @@ You will see an automatically updating output message telling you the progress o
     Approx 15% complete for SRR306844chr1_chr3.fastq.gz
 
 
-The FastQC program has created several new files within our `/UNTRIMMED_FASTA/` directory.
+The FastQC program has created several new files within our `/untrimmed_fastq/` directory.
 
     $ ls
     
@@ -355,20 +366,20 @@ For each input FASTQ file, FastQC has created a `.zip` file and a
 
 We want to keep our data files and our results files separate, so we will move these output files into a new directory within our `results/` directory.
 
-    $ mkdir -p [yourscratch]/FASTQC_UNTRIMMED_READS
-    $ mv *.zip [yourscratch]/FASTQC_UNTRIMMED_READS/
-    $ mv *.html [yourscratch]/FASTQC_UNTRIMMED_READS/
+    $ mkdir -p /srv/scratch/zID/fastqc_untrimmed_reads
+    $ mv *.zip /srv/scratch/zID/fastqc_untrimmed_reads/
+    $ mv *.html /srv/scratch/zID/fastqc_untrimmed_reads/
     
 
 Now we can navigate into this results directory and do some closer inspection of our output files.
 
-    $ cd [yourscratch]/FASTQC_UNTRIMMED_READS/
+    $ cd /srv/scratch/zID/fastqc_untrimmed_reads/
     
 
 Viewing the FastQC results
 --------------------------
 
-If we were working on our local computers, we would be able to look at each of these HTML files by opening them in a web browser. However, to look at a summary vesion of the Fastqc html files- we need to create a summary file.
+If we were working on our local computers, we would be able to look at each of these HTML files by opening them in a web browser. However, to look at a summary version of the Fastqc html files- we need to create a summary file.
 
 However, these files are currently sitting on Katana, where our local computer can not see them. And, since we are only logging into the Katana  via the command line - it does not have any web browser setup to display these files either.
 
@@ -376,9 +387,9 @@ So the easiest way to look at these webpage summary reports will be to transfer 
 
 To transfer a file from a remote server to our own machines, we will use `scp`.
 
-First we will make a new directory on our computer to store the HTML files we are transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program (you can use the pull down menu at the top of your screen or the Cmd+t keyboard shortcut) and type:
+First, we will make a new directory on our computer to store the HTML files we are transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program (you can use the pull-down menu at the top of your screen or the Cmd+t keyboard shortcut) and type:
 
-    $ mkdir -p ~/Desktop/FASTQC_HTML
+    $ mkdir -p ~/Desktop/fastqc_html
     
 
 Now we can transfer our HTML files to our local computer.
@@ -390,17 +401,17 @@ Now we can transfer our HTML files to our local computer.
 **For a Mac/Linux OS:**
 
 
-3) Navigate into a known location e.g. Desktop with the `cd` command.
+3) Navigate into a known location, e.g. Desktop, with the `cd` command.
 
 **For a Windows OS:**
  
- 
+
 3) Navigate into a known location with the equivalent command as `cd` which is `pushd` or `popd`
 
   
 4) Using `scp` to move some infomation from scratch to your local computer.
 
-    $ scp [your_zID]@katana.restech.unsw.edu.au:"srv/scratch/[your_zID]/UNTRIMMED_FASTQC/*.html" .
+    $ scp zID@katana.restech.unsw.edu.au:"srv/scratch/zID/fastqc_untrimmed_fastq/*.html" .
     
     
  Understanding the Phred Quality Score
@@ -415,7 +426,7 @@ How the phred quality score actually makes sense in terms of accuracy:
 > Note on using zsh
 > -----------------
 > 
-> If you are using zsh instead of bash (macOS for example changed the default recently to zsh), it is likely that a `no matches found` error will be displayed. The reason for this is that the wildcard (“\*”) is not correctly interpreted. To fix this problem the wildcard needs to be escaped with a “\\”:
+> If you are using zsh instead of bash (macOS, for example, changed the default recently to zsh), it is likely that a `no matches found` error will be displayed. The reason for this is that the wildcard (“\*”) is not correctly interpreted. To fix this problem, the wildcard needs to be escaped with a “\\”:
     
 Now we can go to our new directory and open the 6 HTML files.
 
@@ -424,7 +435,8 @@ Depending on your system, you should be able to select and open them all at once
 > Exercise
 > --------
 > 
-> Discuss your results with your group or a neighbor. Which sample(s) looks the best in terms of per base sequence quality? Which sample(s) look the worst?
+> Discuss your results with your group or a neighbour. Which sample(s) looks the best in terms of per base sequence quality? Which sample(s) look the worst?
+>
 > 
 
 
@@ -433,20 +445,8 @@ Decoding the other FastQC outputs
 
 We have now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we have not talked about! Below we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 
-*   [**Per tile sequence quality**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html): the machines that perform sequencing are divided into tiles. This plot displays patterns in base quality along these tiles. Consistently low scores are often found around the edges, but hot spots can also occur in the middle if an air bubble was introduced at some point during the run.
-*   [**Per sequence quality scores**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html): a density plot of quality for all reads at all positions. This plot shows what quality scores are most common.
-*   [**Per base sequence content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html): plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
-*   [**Per sequence GC content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html): a density plot of average GC content in each of the reads.
-*   [**Per base N content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html): the percent of times that ‘N’ occurs at a position in all reads. If there is an increase at a particular position, this might indicate that something went wrong during sequencing.
-*   [**Sequence Length Distribution**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html): the distribution of sequence lengths of all reads in the file. If the data is raw, there is often on sharp peak, however if the reads have been trimmed, there may be a distribution of shorter lengths.
-*   [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): A distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). If the samples are high coverage (or RNA-seq or amplicon), this might not be true.
-*   [**Overrepresented sequences**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html): A list of sequences that occur more frequently than would be expected by chance.
-*   [**Adapter Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html): a graph indicating where adapater sequences occur in the reads.
-*   [**K-mer Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Kmer%20Content.html): a graph showing any sequences which may show a positional bias within the reads.
 
-
-
-Using MultiQC to Simplify the FastqC html output
+Using MultiQC to Simplify the FastqC HTML output
 -------------------------------------------------
 It is hard to read through all html files at once. A great tool to make a summary of the QC files is `multiqc`. Remember to perform `module load`.
 
@@ -462,7 +462,7 @@ It is hard to read through all html files at once. A great tool to make a summar
 > Exercise
 > --------
 > 
-> Does any samples failed at least one of FastQC’s quality tests? What test(s) did those samples fail?
+> Does any samples fail at least one of FastQC’s quality tests? What test(s) did those samples fail?
 
 ***Extra Work***
 Working with the FastQC text output

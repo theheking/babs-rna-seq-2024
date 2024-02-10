@@ -31,7 +31,17 @@ Prac/Tutorial sessions will be delivered synchronously as a combination of onlin
 
 Attendance in practicals & tutorials is compulsory unless otherwise announced or prior arrangements have been made.
 
-# Practical and Tutorial Schedule
+# Allocation of Marks 
 
-*** EDIT: INSERT DATAFRAME ABOUT ALLOCATION OF MARKS ***
+| Assessment Task                     | Weight | Date                 | Week Number |
+| ----------------------------------- | ------ | -------------------- | ----------- |
+| 1\. RNA-seq Dataset Talk            | 10%    | Friday 01 Mar        | Week 3      |
+| 2\. Genomics Quiz                   | 20%    | Thursday 14 Mar 1400 | Week 5      |
+| 3\. Bioinformatics Practical Report | 40%    | Friday 19 April 1400 | Week 10     |
+| 4\. Final Exam                      | 30%    | See Exam Timetable   |             |
+
+
+
+
+
 

@@ -20,4 +20,4 @@ The structure of today's session is to:
 3. Start to work on your oral presentation within your groups
 
 You will be assigned RNA sequencing datasets and randomly allocated into groups to prepare your oral presentation, where you will discuss the importance of analysing your dataset to advance research and provide knowledge about human disease. 
-Talks are 10 minutes plus 5 minutes for questions, with slides presented by each team member live on Teams in the week 3 practical timeslot and will be graded by peers. See course Handbook for more details. [Taken from King Handbook 2023]
+Talks are 10 minutes plus 5 minutes for questions, with slides presented by each team member live on Teams in the week 3 practical timeslot and will be graded by peers. See course Handbook for more details. [Taken from King Handbook 2024]

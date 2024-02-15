@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 2A Intro to Shell - Writing Scripts and Working with Data
+title: Week 2 Intro to Shell - Writing Scripts and Working with Data
 ---
 
 Writing Scripts and Submitting Jobs to Katana 

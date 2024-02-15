@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 1C Intro to Shell - Navigating Files and Directories
+title: Week 1C Intro to Shell - Working with Files and Directories
 ---
 
 Working with Files and Directories

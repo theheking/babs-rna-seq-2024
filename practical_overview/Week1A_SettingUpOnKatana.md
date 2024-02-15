@@ -15,7 +15,7 @@ Setting Up on Katana
 >   
 > *   Open operating system specific terminal
 >   
-> *   Log in to the Garvan wolfpack server
+> *   Log in to the UNSW Katana server
 >   
 
 

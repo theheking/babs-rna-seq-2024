@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 2A Intro to Shell - Redirection
+title: Week 2 Intro to Shell - Redirection
 ---
 
 Redirection
@@ -107,7 +107,7 @@ We can check the number of lines in our new file using a command called `wc`. `w
 
     $ wc bad_reads.txt
 
-This will tell us the number of lines, words and characters in the file. If we want only the number of lines, we can use the `-l` flag for `lines`.
+This will tell us the file's number of lines, words and characters. We can use the `-l` flag for `lines` if we want only the number of lines.
 
     $ wc -l bad_reads.txt
         
@@ -115,7 +115,7 @@ This will tell us the number of lines, words and characters in the file. If we w
 > Exercise
 > --------
 > 
-> How many sequences are there in `SRR2589044_1.fastq`? Remember that every sequence is formed by four lines.
+> How many sequences are there in `SRR2589044_1.fastq`? Remember that four lines form every sequence.
 > 
 
 
@@ -125,7 +125,7 @@ This will tell us the number of lines, words and characters in the file. If we w
 > How many sequences in `SRR2589044_1.fastq` contain at least 3 consecutive Ns?
 > 
 
-We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the `>` command to redirect output to a file, the new output will replace the output that was already present in the file. This is called “overwriting” and, just like you don’t want to overwrite your video recording of your kid’s first birthday party, you also want to avoid overwriting your data files.
+We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful because each time we use the `>` command to redirect output to a file, the new output will replace the output that was already present in the file. This is called “overwriting” and, just like you don’t want to overwrite your video recording of your kid’s first birthday party, you also want to avoid overwriting your data files.
 
     $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1.fastq > bad_reads.txt
     $ wc -l bad_reads.txt

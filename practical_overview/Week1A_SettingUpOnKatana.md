@@ -54,8 +54,15 @@ $ ssh zID@katana.restech.unsw.edu.au
 Enter your **zPass** when prompted. (If it doesn't work, check that you replaced zID with your own **zID**!)
 
 ### Logging on from Windows OS
- - First, check if you have the Command Prompt or PowerShell program locally. You might need to enable SSH using the tutorial recommended by John Reeves: [How to Enable and Use Windows 10's Built-in SSH Commands.](https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/). 
- - Second, if you do not have either Command Prompt or PowerShell installed, it is likely your laptop has a Windows OS before 10. Therefore, I recommend installing [PuTTY](https://www.putty.org/) which is an open source software. 
+ - First, check if you have the Command Prompt or PowerShell program locally. If you do then open it up and login using the details below:
+
+```
+$ ssh zID@katana.restech.unsw.edu.au
+```
+ 
+- If you have Windows 10, a common error is that you might need to enable SSH using the tutorial. Please follow this tutorial. [How to Enable and Use Windows 10's Built-in SSH Commands.](https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/).
+   
+ - Finally, if your laptop has a Windows OS before 10, it is likely you do not have either Command Prompt or PowerShell installed. Therefore, I recommend installing [PuTTY](https://www.putty.org/) which is an open source software. Then follow the subsequent section. 
 
 
 

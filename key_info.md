@@ -3,7 +3,7 @@ layout: page
 title: Key Infomation
 ---
 
-Welcome to the bioinformatics practical for BABS3291 Genes, Genome and Evolution. The material in this handbook is designed to help guide you through the practical.
+Welcome to the Bioinformatics Practical Handbook for BABS3291 Genes, Genome and Evolution. The material in this handbook is designed to help guide you through the practical.
 
 
 | Groups                   | Research Topic         | GSE       | Chromosome  | First name | Last name                 |

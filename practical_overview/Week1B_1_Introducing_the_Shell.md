@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 1A Intro to Shell - Introducting the Shell 
+title: Week 1B Intro to Shell - Introducing the Shell 
 ---
 
 Introducing the Shell

@@ -205,13 +205,13 @@ Note that you are always running `rsync` locally, but that _doesn’t_ mean that
 
     $ rsync <local file> <katana login details>:"location"
     
-e.g ***On my Mac computer**** scp README.md zID@katana.restech.unsw.edu.au:"somewhere/nice/"
+e.g ***On my Mac computer**** rsync README.md zID@katana.restech.unsw.edu.au:"somewhere/nice/"
     
 To move it back to your local computer, you re-order the `to` and `from` fields:
 
     $ rsync <katana login details> <local file>:"location"
     
-e.g ***On my Mac computer**** scp zID@katana.restech.unsw.edu.au:"somewhere/nice/README.md" /somewhere/okay/
+e.g ***On my Mac computer**** rsync zID@katana.restech.unsw.edu.au:"somewhere/nice/README.md" /somewhere/okay/
 
 
 **Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:

@@ -17,7 +17,7 @@ Examining Data on the NCBI SRA Database
 >     
 > 
 > **Objectives**
->
+> 
 > *   Understand the biological limitations of RNA-seq. 
 >
 > *   Be aware that public genomic data is available.
@@ -28,7 +28,7 @@ Examining Data on the NCBI SRA Database
 Publically available data is an amazing resource as:
 - to compare your results or annotate your data
 - run a different set of analyses on the same data, to answer a different biological question
-- prevent repreating labour intensive wet lab work
+- prevent repeating labour intensive wet lab work
 
 When you come to publish a paper including your sequencing data, most journals and funders require that you place your data on a public repository. Sharing your data makes it more likely that your work will be re-used and cited. 
 
@@ -42,7 +42,7 @@ In a perfect world, RNA-Seq might work something like this:
 
 1. We know the location of every single gene in the genome (even genes that are identical duplicates of each other).
 2. At any given time, we can get an exact readout of how many mRNAs a gene has produced (transcription) and for protein coding mRNA transcripts we know how much protein was yielded.
-3. Given 1 and 2, we can clearly tell if gene transcription is different between two different samples (e.g. normal tissue and cancerous).
+3. Given 1 and 2, we can tell if gene transcription is different between two different samples (e.g. normal tissue and cancerous).
 
 Unfortunately, here are just some of the ways a real world experiment fails to meet our ideal expectations:
 
@@ -52,11 +52,11 @@ Unfortunately, here are just some of the ways a real world experiment fails to m
 
 ![OVerview](../assets/img/overview_rna_seq.png)
 
-Overview of the experimental steps in a RNA-seq protocol. The cDNA library is generated from isolated RNA targets, sequenced and the reads are mapped against a reference genome or transcriptome. Downstream data analysis depends on the goal of the experiment and can include, among other things, assessing differential expression, variant calling or genome annotation.
+Overview of the experimental steps in an RNA-seq protocol. The cDNA library is generated from isolated RNA targets, sequenced and the reads are mapped against a reference genome or transcriptome. Downstream data analysis depends on the goal of the experiment and can include, among other things, assessing differential expression, variant calling or genome annotation.
 
 
-## What is the difference between single and paired end reads?
-With paired-end sequencing, both ends of the fragment are sequenced. With single-end seuqecing, only one end is of a fragment is sequenced.
+## What is the difference between single and paired-end reads?
+With paired-end sequencing, both ends of the fragment are sequenced. With single-end sequencing, only one end of a fragment is sequenced.
 
 
 Accessing the original archived data
@@ -69,7 +69,7 @@ Please check your groups, and find your group number by clicking Practical Overv
 
 ### Locating the Run Selector Table for the Brawand Dataset on the SRA
 
-Very often there will be a direct link (perhaps in the supplemental information) to where the SRA dataset can be found. If we open the paper and scroll down to section such as Accession Codes, Data Availability ect. will have a direct link of the accession code for Gene expression omnibus starting with GSE[NUMBER].
+Very often there will be a direct link (perhaps in the supplemental information) to where the SRA dataset can be found. If we open the paper and scroll down to section such as Accession Codes, Data Availability ect. will have a direct link to the accession code for Gene expression omnibus starting with GSE[NUMBER].
 
 My paper link is: https://www.nature.com/articles/nature10532#accession-codes
 

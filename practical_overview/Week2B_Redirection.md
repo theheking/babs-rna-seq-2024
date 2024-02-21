@@ -131,11 +131,11 @@ We might want to search multiple FASTQ files for sequences that match our search
     $ wc -l bad_reads.txt
         
 
-    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1.fastq > bad_reads.txt
+    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_2.fastq > bad_reads.txt
     $ wc -l bad_reads.txt
         
 
-Here, the output of our second call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is because the second file we searched (`SRR097977.fastq`) does not contain any lines that match our search sequence. So our file was overwritten and is now empty.
+Here, the output of our second call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is because the second file we searched (`SRR2589044_2.fastq`) does not contain any lines that match our search sequence. So our file was overwritten and is now empty.
 
 We can avoid overwriting our files by using the command `>>`. `>>` is known as the “append redirect” and will append new output to the end of a file, rather than overwriting it.
 
@@ -170,14 +170,14 @@ There’s a way to do this, however, that doesn’t require us to create these i
 
 What `|` does is take the output that is scrolling by on the terminal and uses that output as input to another command. When our output was scrolling by, we might have wished we could slow it down and look at it, like we can with `less`. Well it turns out that we can! We can redirect our output from our `grep` call through the `less` or `wc` commands
 
-    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1 | wc -l 
+    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1.fastq | wc -l 
     
 - Expecting an integer. Why? 
     
 The fifth and six lines in the output display “–” which is the default action for `grep` to separate groups of lines matching the pattern, and indicate groups of lines which did not match the pattern so are not displayed. To fix this issue, we can redirect the output of grep to a second instance of `grep` as follows.
 
-    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1 | grep -v '^--' > bad_reads.fastq
-    tail bad_reads.fastq
+    $ grep -B1 -A2 NNNNNNNNNN SRR2589044_1.fastq | grep -v '^--' > bad_reads.fastq
+    $ tail bad_reads.fastq
     
 
 The `-v` option in the second `grep` search stands for `--invert-match` meaning `grep` will now only display the lines which do not match the searched pattern, in this case `'^--'`. The caret (`^`) is an **anchoring** character matching the beginning of the line, and the pattern has to be enclose by single quotes so `grep` does not interpret the pattern as an extended option (starting with –).

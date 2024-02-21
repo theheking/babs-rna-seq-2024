@@ -259,6 +259,19 @@ e.g ***On my Mac computer**** rsync zID@katana.restech.unsw.edu.au:"somewhere/ni
 >     
 -----
 
+
+
+> Extension Task
+> ----------------
+> If you want to make your script writing and submitting more seamless between your console and ssh. Depending on your machine, you can ssh into your machine via VSCode and submit directly.
+> The how-to steps as follows:
+> 1) Download VSCode for your machine: https://code.visualstudio.com/
+> 2) Install the remote-ssh extension from the marketplace (https://code.visualstudio.com/docs/remote/ssh)
+> 3) Connect to katana through VSCode using their login
+> 4) Set-up the 'code' shortcut if necessary for opening files.
+
+
+
 Adapted from the Data Carpentry Intro to Command Line -shell genomics https://datacarpentry.org/shell-genomics/
 
 Licensed under CC-BY 4.0 2018–2021 by The Carpentries  

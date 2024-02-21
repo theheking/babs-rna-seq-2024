@@ -35,6 +35,7 @@ When you come to publish a paper including your sequencing data, most journals a
 There are many repositories for public data. Some model organisms or fields have specific databases, and there are ones for particular types of data. Two of the most comprehensive public repositories are provided by the [National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov) and the [European Bioinformatics Institute (EMBL-EBI)](https://www.ebi.ac.uk/). The NCBI’s [Sequence Read Archive (SRA)](https://trace.ncbi.nlm.nih.gov/Traces/sra/) is the database we will be using for this lesson, but the EMBL-EBI’s Nucleotide Archive (ENA) is also useful. The general processes are similar for any database.
 
 
+
 An overview of RNA-sequencing data
 ------------------------------------
 In a perfect world, RNA-Seq might work something like this:
@@ -64,12 +65,18 @@ The [sequencing dataset (from Brawand, _et al._ 2011) adapted for this lesson] w
 
 Please check your groups, and find your group number by clicking Practical Overview, then Sample Dataset on the class website. **Each student will have a paper that they share with their group but, a distinct subset of chromosomes from the dataset. This will mean everyone’s results will be unique as we run through the practical. **
 
+
+
 ### Locating the Run Selector Table for the Brawand Dataset on the SRA
 
-Very often there will be a direct link (perhaps in the supplemental information) to where the SRA dataset can be found. If we open the paper and scroll down to section such as Accession Codes, Data Availability ect. will have a direct link of the accession code for Gene expression omnibus starting with GSE[NUMBER]. 
+Very often there will be a direct link (perhaps in the supplemental information) to where the SRA dataset can be found. If we open the paper and scroll down to section such as Accession Codes, Data Availability ect. will have a direct link of the accession code for Gene expression omnibus starting with GSE[NUMBER].
+
 My paper link is: https://www.nature.com/articles/nature10532#accession-codes
 
 > **Author Information** All sequencing data sets are available under GSE30352. (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE30352)
+
+
+**Hint: When searching for SRA the [sra-explorer](https://sra-explorer.info/#) is a great tool to search for particular datasets. **
 
 **For this tutorial, we will show you how to access all the data and metadata as if you were downloading data yourself. However, for this course, we have already prepared the FASTQ files to make them smaller and less computationally demanding. ***
 

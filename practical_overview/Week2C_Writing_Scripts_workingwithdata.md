@@ -64,9 +64,13 @@ The three core fundamentals to navigate and use `vim` is:
    - Using *hot-keys* to `Ctrl+[`.
    - Write write and quit `:!wq`
 
+![Vim Open Doc](../assets/img/vimsave.png)
+
+
 Once you have exited vim. We will get you more familiar with **vim** and its basic commands by writing the command `vimtutor`. 
 
     $ vimtutor
+
 
 
 > Which Editor?

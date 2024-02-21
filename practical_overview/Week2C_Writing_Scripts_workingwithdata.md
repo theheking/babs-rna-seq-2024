@@ -50,7 +50,7 @@ You should see something like this:
 ![Vim Open Doc](../assets/img/new_vimreadme.png)
 
 
-To save and exit out of vim, write `:!wq`, this means *write* and *quit* vim as a text edit.
+To save and exit out of vim, write `:wq`, this means *write* and *quit* vim as a text edit.
 
 
 
@@ -68,7 +68,7 @@ The three core fundamentals to navigate and use `vim` is:
    
    - Using *hot-keys* to `Ctrl+[`.
      
-   - Write write and quit `:!wq`
+   - Write write and quit `:wq`
 
 ![Vim Open Doc](../assets/img/vimsave.png)
 

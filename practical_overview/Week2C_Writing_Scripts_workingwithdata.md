@@ -59,11 +59,15 @@ The three core fundamentals to navigate and use `vim` is:
 1) **Open** a file using `vim script.sh`
    
 2) **Write** into the file by:
-   - Writing `I` to switch to insert mode.
-   - Writing text or pasting text.
+   
+    - Writing `I` to switch to insert mode.
+
+    - Writing text or pasting text.
      
 3) **Saving** by:
+   
    - Using *hot-keys* to `Ctrl+[`.
+     
    - Write write and quit `:!wq`
 
 ![Vim Open Doc](../assets/img/vimsave.png)

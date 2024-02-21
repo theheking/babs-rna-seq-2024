@@ -50,12 +50,29 @@ You should see something like this:
 ![Vim Open Doc](../assets/img/new_vimreadme.png)
 
 
-The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `vim`. We will talk more about how to interpret this information soon.
+To save and exit out of vim, write `:!wq`, this means *write* and *quit* vim as a text edit.
+
+
+
+The three core fundamentals to navigate and use `vim` is: 
+
+1) **Open** a file using `vim script.sh`
+2) **Write** into the file by:
+   - Writing `I` to switch to insert mode.
+   - Writing text or pasting text.
+3) **Saving** by:
+   - Using *hot-keys* to `Ctrl+[`.
+   - Write write and quit `:!wq`
+
+Once you have exited vim. We will get you more familiar with **vim** and its basic commands by writing the command `vimtutor`. 
+
+    $ vimtutor
+
 
 > Which Editor?
 > -------------
 > 
-> When we say, “`vim` is a text editor. On Unix systems (such as Linux and Mac OS X), many programmers use [Emacs](https://www.gnu.org/software/emacs/) or [Vim](https://www.vim.org/) (both of which require more time to learn), or a graphical editor such as [Gedit](https://projects.gnome.org/gedit/). On Windows, you may wish to use [Notepad++](https://notepad-plus-plus.org/). Windows also has a built-in editor called `notepad` that can be run from the command line in the same way as `nano` for the purposes of this lesson.
+> When we say, “`vim` is a text editor. On Unix systems (such as Linux and Mac OS X), many programmers use [Emacs](https://www.gnu.org/software/emacs/) or [Vim](https://www.vim.org/) (both of which require more time to learn), or a graphical editor such as [Gedit](https://projects.gnome.org/gedit/). On Windows, you may wish to use [Notepad++](https://notepad-plus-plus.org/). Windows also has a built-in editor called `notepad` that can be run from the command line in the same way as `nano` for the purposes of this lesson. I recommended using [vscode](https://vscode.dev/) online in our first practical.
 
 Now you’ve written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `vim`.
 

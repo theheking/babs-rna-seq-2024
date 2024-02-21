@@ -225,7 +225,7 @@ The interpreter is trying to expand a variable named `fooEFG`, which (probably) 
 
 Let’s write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven’t finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
 
-    $ cd ../untrimmed_fastq/
+    $ cd /srv/scratch/zID/data
     
 
     $ for filename in *.fastq

@@ -93,19 +93,39 @@ My paper link is: https://www.nature.com/articles/nature10532#accession-codes
 ### Download the Brawand Metadata from the SRA Run Selector Table
 
 1.  This is NCBI’s cloud-based SRA interface. You will be presented with a page for the overall SRA accession 	SRP007412 - this is a collection of all the experimental data.
+
+
     
 2.  Notice on this page there are three sections. “Common Fields” “Select”, and “Found 149 Items”. Within “Found 149 Items”, click on the first Run Number (Column “Run” Row “1”). 
+
+
+
 
 ![ncbi-new-tables2.png](../assets/img/pic3.png)
 
 
-3.  This will take you to a page that is a run browser. Take a few minutes to examine some of the descriptions on the page. 
+
+
+
+3.  This will take you to a page that is a run browser. Take a few minutes to examine some of the descriptions on the page.
+
+
+
+
    
 ![ncbi-new-tables2.png](../assets/img/pic4.png)
 
-4.  Use the browser’s back button to go back to the ‘previous page’. As shown in the figure below, the second section of the page (“Select”) has the **Total** row showing you the current number of “Runs”, “Bytes”, and “Bases” in the dataset to date. 
+
+
+
+4.  Use the browser’s back button to go back to the ‘previous page’. As shown in the figure below, the second section of the page (“Select”) has the **Total** row showing you the current number of “Runs”, “Bytes”, and “Bases” in the dataset to date.
+
+
+
 
 ![ncbi-new-tables2.png](../assets/img/pic5.png)
+
+
 
 
 5.  Click on the “Metadata” button to download the data for this lesson. The filename is “SraRunTable.txt” and save it on your computer Desktop. This text-based file is actually a “comma-delimited” file, so you should rename the file to “SraRunTable.csv” for your spreadsheet software to open it correctly.

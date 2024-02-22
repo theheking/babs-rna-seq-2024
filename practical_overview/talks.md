@@ -13,7 +13,7 @@ Week 5 - Student Talks
 
 2. Fill out your responses in your copy of the Template for Responses
 
-3. Once all of the talks are finished, for every talk please fill out [feedback form](https://docs.google.com/forms/d/e/1FAIpQLSdEPWhRx9LvidLu0TixKHpjtdUic9BF84kfUuMG9EZj9QeMlQ/viewform)
+3. Once all of the talks are finished, for every talk please fill out [feedback form](https://forms.gle/KMQbbRL4rtTmsLKV7)
 
 ***Marking will be available until 2pm on Friday***
 

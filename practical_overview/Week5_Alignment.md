@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 8 Alignment with Kallisto 
+title: Week 5 Alignment with Kallisto 
 ---
 
 Alignment With Kallisto

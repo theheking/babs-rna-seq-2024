@@ -47,8 +47,8 @@ Starting with data
 
 Ramaciotti Centre for Genomics and other sequencing centers will usually provide you will a link for data download. Today we will be working with publicly available sequencing data. However, we are using data that has been dowloaded onto the cluster beforehand, and split by chromosome to make it less computationally demanding to run through the entire pipeline. 
 
-You will be utilising one of the datasets from: https://theheking.github.io/babs-rna-seq/practical_overview/sample_datasets/
-For each dataset, there is a control and disease condition. I am using the dataset below and analysisng the differential expression between cerebellum and heart human datasets. 
+You will be utilising one of the datasets from: https://theheking.github.io/babs-rna-seq-2024/practical_overview/sample_datasets/
+For each dataset, there is a control and disease condition. I am using the dataset below and analysing the differential expression between cerebellum and heart human datasets. 
 
 |               | Description                                                                   | Website GSE                                                                                                                | Paper                                                       | Paper Website                                                                              | Control Sample | Test Sample |
 | ------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------- | ----------- |
@@ -57,9 +57,15 @@ For each dataset, there is a control and disease condition. I am using the datas
 The data is single-end sequenced.
 
 **Recap** 
-## What is the difference between single and paired end reads?
-With paired-end sequencing, both ends of the fragment are sequenced. With single-end seuqecing, only one end is of a fragment is sequenced. If the data is paired-end, you have two files for each sample.
+## What is the difference between single and paired-end reads?
+With paired-end sequencing, both ends of the fragment are sequenced. With single-end sequencing, only one end of a fragment is sequenced. If the data is paired-end, you have two files for each sample.
 
+![workflow](../assets/img/overview_rna_seq.png)
+
+> Question
+> --------
+> When would the **paired-ness** occur in the wetlab protocol?
+> 
 
 You will find your FASTQ files at  **/srv/scratch/babs3291/**. You will be assigned a chromosome subset and a dataset previously.
 
@@ -69,15 +75,18 @@ To download the data, please:
 
          $ qsub -I   
 
-2)  Use `mkdir` to create a folder to store all your project. 
+2)  Use `mkdir` to create a folder to store all your projects. 
  
         $ mkdir /srv/scratch/zID/babs3291
 
 3) Use `mkdir` to create a folder for your input fasta file e.g. **UNTRIMMED_FASTQ**
+
 You can use the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories does not already exist. It also supresses errors if the directory already exists, without overwriting that directory.
 
-   $ mkdir -p /srv/scratch/zID/babs3291/untrimmed_fastq
-   $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
+
+            $ mkdir -p /srv/scratch/zID/babs3291/untrimmed_fastq
+            $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
+         
 
 5) copy your dataset from the **/srv/scratch/babs3291/** to this directory as below.
 
@@ -93,7 +102,7 @@ You can use the `-p` option for `mkdir`. This option allows `mkdir` to create th
 
 > This command creates a copy of each of the files in the directory that end in `fastq.gz` and places the copies in the current working directory (signified by `.`).
 
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. To unzip one of the files - you can look at the fastq format.
+The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer and allows it to take up less space on our computer. To unzip one of the files - you can look at the fastq format.
 
     $ gunzip SRR2584863_1.fastq.gz #do not do this!!!
     
@@ -152,7 +161,7 @@ we can now see that there is a range of quality scores, but that the end of the 
 > --------
 > 
 > What is the last read in your file? Is this read of high quality, explain?
-> Hint use command: tail
+> Hint use command: `tail`
 >
 > You will often see the use of FASTQ and FASTA interchangeably by bioinformaticians. What is the difference between FASTQ and FASTA files?
 > 
@@ -313,7 +322,7 @@ Assessing quality using FastQC
 
 In real life, you will not be assessing the quality of your reads by visually inspecting your FASTQ files. Rather, you will be using a software program to assess read quality and filter out poor quality reads. We will first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. Later in our workflow, we will use another program to filter out poor quality reads.
 
-FastQC has a number of features which can give you a quick impression of any problems your data may have, so you can take these issues into consideration before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
+FastQC has several features which can give you a quick impression of any problems your data may have, so you can consider these issues before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
 ![good_quality](../assets/img/good_quality1.8.png)
 
@@ -409,15 +418,16 @@ Now we can transfer our HTML files to our local computer.
 3) Navigate into a known location with the equivalent command as `cd` which is `pushd` or `popd`
 
   
-4) Using `scp` to move some infomation from scratch to your local computer.
+4) Using `rsync` to move some infomation from scratch to your local computer.
 
-    $ scp zID@katana.restech.unsw.edu.au:"srv/scratch/zID/fastqc_untrimmed_fastq/*.html" .
+    $ rsync zID@katana.restech.unsw.edu.au:"srv/scratch/zID/fastqc_untrimmed_fastq/*.html" .
     
     
  Understanding the Phred Quality Score
 -----------------------------------------
 
-How the phred quality score actually makes sense in terms of accuracy:
+How the phred quality score makes sense in terms of accuracy:
+
 
 ![qualscore](../assets/img/qualscore.png)
 
@@ -431,6 +441,8 @@ How the phred quality score actually makes sense in terms of accuracy:
 Now we can go to our new directory and open the 6 HTML files.
 
 Depending on your system, you should be able to select and open them all at once via a right click menu in your file browser.
+
+
 
 > Exercise
 > --------
@@ -463,6 +475,9 @@ It is hard to read through all html files at once. A great tool to make a summar
 > --------
 > 
 > Does any samples fail at least one of FastQC’s quality tests? What test(s) did those samples fail?
+>
+
+
 
 ***Extra Work***
 Working with the FastQC text output

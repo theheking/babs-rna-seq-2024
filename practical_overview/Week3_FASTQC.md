@@ -142,8 +142,8 @@ Line 4 shows the quality for each nucleotide in the read. Quality is interpreted
 The numerical value assigned to each of these characters depends on the sequencing platform that generated the reads. The sequencing machine used to generate our data uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards. Each character is assigned a quality score between 0 and 41 as shown in the chart below.
 
     Quality encoding: !"#$%&'()*+,-./0123456789:;<=>@ABCDEFGHI
-                       |        |         |        |       |
-    Quality score:   01........11........20........30.......40
+                       |        |         |        |        |
+    Quality score:    01..... ..11.......20........30.......40
     
 
 Each quality score represents the probability that the corresponding nucleotide call is incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. These probability values are the results from the base calling algorithm and depend on how much signal was captured for the base incorporation.
@@ -155,7 +155,7 @@ Looking back at our read:
     +
     !69699><;;:8=+:::::987765979858859775775883796699+48789599878592274362843111
 
-we can now see that there is a range of quality scores, but that the end of the sequence is very poor (`!` = a quality score of 1).
+we can now see that there is a range of quality scores, but that the beginning of the sequence is very poor (`!` = a quality score of 1).
 
 > Exercise
 > --------
@@ -322,7 +322,7 @@ Assessing quality using FastQC
 
 In real life, you will not be assessing the quality of your reads by visually inspecting your FASTQ files. Rather, you will be using a software program to assess read quality and filter out poor quality reads. We will first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. Later in our workflow, we will use another program to filter out poor quality reads.
 
-FastQC has several features which can give you a quick impression of any problems your data may have, so you can consider these issues before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
+FastQC has several features which can give you a quick impression of any problems your data may have, so you can consider these issues before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC takes a subsample of the reads within the sample (the first 10,0000). The image below shows one FastQC-generated plot that indicates a very high-quality sample:
 
 ![good_quality](../assets/img/good_quality1.8.png)
 
@@ -455,7 +455,7 @@ Depending on your system, you should be able to select and open them all at once
 Decoding the other FastQC outputs
 ---------------------------------
 
-We have now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we have not talked about! Below we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
+We have now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we have not talked about! In the section FASTQC_2B we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 
 
 Using MultiQC to Simplify the FastqC HTML output

@@ -71,7 +71,7 @@ You will find your FASTQ files at  **/srv/scratch/babs3291/**. You will be assig
 
 To download the data, please:
 
-1) request an interactive session using qsub
+1) request an interactive session using qsub. Notice where you are right now using `pwd`.
 
          $ qsub -I   
 
@@ -79,7 +79,7 @@ To download the data, please:
  
         $ mkdir /srv/scratch/zID/babs3291
 
-3) Use `mkdir` to create a folder for your input fasta file e.g. **UNTRIMMED_FASTQ**
+3) Use `mkdir` to create a folder for your input fasta file e.g. **untrimmed_fastq**
 
 You can use the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories does not already exist. It also supresses errors if the directory already exists, without overwriting that directory.
 

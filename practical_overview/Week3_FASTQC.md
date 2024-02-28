@@ -455,7 +455,7 @@ Depending on your system, you should be able to select and open them all at once
 Decoding the other FastQC outputs
 ---------------------------------
 
-We have now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we have not talked about! In the section FASTQC_2B we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
+We have now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we have not talked about! In the section FASTQ 3B we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 
 
 Using MultiQC to Simplify the FastqC HTML output

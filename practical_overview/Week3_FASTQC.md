@@ -127,7 +127,7 @@ Line - Description
 
 3 - Always begins with a ‘+’ and sometimes the same info in line 1
 
-4 - Has a string of characters which represent the quality scores; must have same number of characters as line 2 (https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm) 
+4 - Has a string of characters which represent the quality scores; must have same number of characters as line 2 [found in more detail](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.html) 
 
 
 We can view the first complete read in one of the files our dataset by using `head` to look at the first four lines.

@@ -132,7 +132,7 @@ Line - Description
 
 We can view the first complete read in one of the files our dataset by using `head` to look at the first four lines.
 
-    $ zcat SRR306844chr1_chr3.fastq.gz | head -n 4
+    $ zcat Adapter_Adapter_SRR306844chr1_chr3.fastq.gz | head -n 4
     
 
 Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality score, the numerical score is converted into a code where each individual character represents the numerical quality score for an individual nucleotide. For example, in the line above, the quality score line is:
@@ -358,10 +358,10 @@ FastQC can accept multiple file names as input, and on both zipped and unzipped 
 
 You will see an automatically updating output message telling you the progress of the analysis. It will start like this:
 
-    Started analysis of SRR306844chr1_chr3.fastq.gz
-    Approx 5% complete for SRR306844chr1_chr3.fastq.gz
-    Approx 10% complete for SRR306844chr1_chr3.fastq.gz
-    Approx 15% complete for SRR306844chr1_chr3.fastq.gz
+    Started analysis of Adapter_SRR306844chr1_chr3.fastq.gz
+    Approx 5% complete for Adapter_SRR306844chr1_chr3.fastq.gz
+    Approx 10% complete for Adapter_SRR306844chr1_chr3.fastq.gz
+    Approx 15% complete for Adapter_SRR306844chr1_chr3.fastq.gz
 
 
 The FastQC program has created several new files within our `/untrimmed_fastq/` directory.

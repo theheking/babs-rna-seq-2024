@@ -418,9 +418,9 @@ Now we can transfer our HTML files to our local computer.
 3) Navigate into a known location with the equivalent command as `cd` which is `pushd` or `popd`
 
   
-4) Using `rsync` to move some infomation from scratch to your local computer.
+4) Using `scp` to move some infomation from scratch to your local computer.
 
-    $ rsync zID@katana.restech.unsw.edu.au:"srv/scratch/zID/fastqc_untrimmed_fastq/*.html" .
+    $ scp zID@katana.restech.unsw.edu.au:"/srv/scratch/zID/fastqc_untrimmed_reads/*.html" .
     
     
  Understanding the Phred Quality Score

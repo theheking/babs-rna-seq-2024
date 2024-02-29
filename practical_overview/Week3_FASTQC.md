@@ -137,7 +137,7 @@ We can view the first complete read in one of the files our dataset by using `he
 
 Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality score, the numerical score is converted into a code where each individual character represents the numerical quality score for an individual nucleotide. For example, in the line above, the quality score line is:
 
-    !69699><;;:8=+:::::987765979858859775775883796699+48789599878592274362843111    
+    !69699><;;:8=+:::::987765979858859775775883796699+487895998785922743628431112.-,-0/22201/05006+*,/.-1-3/-31--3    
 
 The numerical value assigned to each of these characters depends on the sequencing platform that generated the reads. The sequencing machine used to generate our data uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards. Each character is assigned a quality score between 0 and 41 as shown in the chart below.
 
@@ -150,20 +150,20 @@ Each quality score represents the probability that the corresponding nucleotide 
 
 Looking back at our read:
 
-    @SRR306844.16.1
-    NTGTAAATGAGTGAGGCAGGAGTCCGAGGAGGTTAGTTGTGGCAATAAAAATGATTAAGGATACTAGTATAAGAGA
-    +
-    !69699><;;:8=+:::::987765979858859775775883796699+48789599878592274362843111
+         @SRR306844.16.1
+         NTGTAAATGAGTGAGGCAGGAGTCCGAGGAGGTTAGTTGTGGCAATAAAAATGATTAAGGATACTAGTATAAGAGAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA
+         +
+         !69699><;;:8=+:::::987765979858859775775883796699+487895998785922743628431112.-,-0/22201/05006+*,/.-1-3/-31--3
 
-we can now see that there is a range of quality scores, but that the beginning of the sequence is very poor (`!` = a quality score of 1).
+we can now see that there is a range of quality scores but that the beginning of the sequence is very poor (`!` = a quality score of 1).
 
 > Exercise
 > --------
 > 
 > What is the last read in your file? Is this read of high quality, explain?
-> Hint use command: `tail`
+> Hint: use command: `tail`
 >
-> You will often see the use of FASTQ and FASTA interchangeably by bioinformaticians. What is the difference between FASTQ and FASTA files?
+> You will often see bioinformaticians use FASTQ and FASTA interchangeably. What is the difference between FASTQ and FASTA files?
 > 
 
 
@@ -353,7 +353,7 @@ We will now assess the quality of the reads that we downloaded. First, make sure
 
 FastQC can accept multiple file names as input, and on both zipped and unzipped files, so we can use the \*.fastq\* wildcard to run FastQC on all of the FASTQ files in this directory.
 
-    $ fastqc *.fastq*
+    $ fastqc --adapters /srv/scratch/babs3291/adapters/fastqc_adapters.txt *.fastq*
     
 
 You will see an automatically updating output message telling you the progress of the analysis. It will start like this:
@@ -485,7 +485,7 @@ It is hard to read through all html files at once. A great tool to make a summar
 > Exercise
 > --------
 > 
-> Does any samples fail at least one of FastQC’s quality tests? What test(s) did those samples fail?
+> Do any samples fail at least one of FastQC’s quality tests? What test(s) did those samples fail?
 >
 
 

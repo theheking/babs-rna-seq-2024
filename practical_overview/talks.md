@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Week 5 Student Talks
+title: Week 3 Student Talks
 ---
 
-Week 5 - Student Talks 
+Week 3 - Student Talks 
 =====================
 
 1. Please make a copy of the [grading rubric google sheet](https://docs.google.com/spreadsheets/d/1lt3PCHBdVuA3WamVPAZlh1U_GZlaNB0tkEFk5dhhPdg/edit#gid=0) (Select File --> Make a Copy)

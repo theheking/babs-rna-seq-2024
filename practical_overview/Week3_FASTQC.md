@@ -353,7 +353,7 @@ We will now assess the quality of the reads that we downloaded. First, make sure
 
 FastQC can accept multiple file names as input, and on both zipped and unzipped files, so we can use the \*.fastq\* wildcard to run FastQC on all of the FASTQ files in this directory.
 
-    $ fastqc --adapters /srv/scratch/babs3291/adapters/fastqc_adapters.txt *.fastq*
+    $ fastqc *.fastq*
     
 
 You will see an automatically updating output message telling you the progress of the analysis. It will start like this:

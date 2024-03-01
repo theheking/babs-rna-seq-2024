@@ -213,7 +213,7 @@ This command will take a few minutes to run.
 
     
     
-You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. It is always a good idea to double-check this or manually enter the quality encoding.
+You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. Double-checking this or manually entering the quality encoding is always a good idea.
 
 We can confirm that we have our output files:
 
@@ -230,7 +230,7 @@ The output files are also FASTQ files. It should be smaller than our input file 
 We have just successfully run Trimmomatic on one of our FASTQ files! However, there is some bad news. Trimmomatic can only operate on one sample at a time, and we have more than one sample. The good news is that we can quickly use a `for` loop to iterate through our sample files!
     
  
-
+    $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-SE.fa"
     $ for infile in *.fastq.gz
     > do
     >   base=$(basename ${infile} .fastq.gz)
@@ -247,6 +247,7 @@ Please either a) run interactively b) submit to the hpc
 
 If you have a paired end sequence, the for loop will be different...
 
+    $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa"
     $ for infile in *_1.fastq.gz
     > do
     >   base=$(basename ${infile} _1.fastq.gz)
@@ -258,7 +259,7 @@ If you have a paired end sequence, the for loop will be different...
     >   trimmomatic PE -phred33 -threads 4 ${infile} ${infile_2} \
                   ${trimmed_1} ${untrimmed_1} \
                   ${trimmed_2} ${untrimmed_2} \
-                  ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36  
+                  ILLUMINACLIP:${ADAPTER_SEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36  
     > done
 
 

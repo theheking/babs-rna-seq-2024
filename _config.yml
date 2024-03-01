@@ -31,10 +31,10 @@ navbar-links:
     - Week 2B Redirection: "practical_overview/Week2B_Redirection"
     - Week 2C Creating scripts and submitting: "practical_overview/Week2C_Writing_Scripts_workingwithdata"
     - Week 3 Using FASTQC For Data Quality Report: "practical_overview/Week3_FASTQC"
-#    - Week 4 Using Trimmomatic for Trimming and Filtering: "practical_overview/Week4_Trimming"
-#    - Week 5 Quiz and Prac Revision: "practical_overview/talks"
-#  Practical W6-10:
-#    - Week 6 Flexibility Week: "practical_overview/flex_week"
+    - Week 4 Using Trimmomatic for Trimming and Filtering: "practical_overview/Week4_Trimming"
+    - Week 5 Quiz and Prac Revision: "practical_overview/quiz"
+ Practical W6-10:
+   - Week 6 Flexibility Week: "practical_overview/flex_week"
 #    - Week 7 Using Kallisto for Pseudoalignment: "practical_overview/Week5_Alignment#    
 #    - Week 8A Using DEGUST for Differential Expression Analysis: "practical_overview/Week9_Differential_Expression"
 #    - Week 8B Understanding the Theory Behind Differential Expression Analysis: "practical_overview/Week9_Differential_Expression_Theory"
@@ -44,8 +44,8 @@ navbar-links:
     - Week 1: "tutorial_overview/week1"
     - Week 2: "tutorial_overview/week2"
     - Week 3: "practical_overview/talks"
-#    - Week 4: "tutorial_overview/week4"
-#    - Week 5: "tutorial_overview/week5"
+    - Week 4: "tutorial_overview/week4"
+    # - Week 5: "tutorial_overview/week5"
 #    - Week 6: "tutorial_overview/week6"
 #    - Week 7: "tutorial_overview/week7"
 #    - Week 8: "practical_overview/ramachotti_tour"

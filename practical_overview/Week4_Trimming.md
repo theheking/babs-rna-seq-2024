@@ -42,7 +42,7 @@ We will use a program called [Trimmomatic](http://www.usadellab.org/cms/?page=tr
 Trimmomatic options
 -------------------
 
-Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options. ** (Hint: might need to use ` module load`) **
+Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options. **(Hint: might need to use ` module load`)**
 
     $ trimmomatic
     

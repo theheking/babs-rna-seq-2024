@@ -187,7 +187,8 @@ This command will take a few minutes to run.
     ILLUMINACLIP: Using 0 prefix pairs, 3 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
     Input Reads: 5416173 Surviving: 5165820 (95.38%) Dropped: 250353 (4.62%)
     TrimmomaticSE: Completed successfully
-    
+
+  
 
 
  A way of thinking about the files you are using 
@@ -227,9 +228,21 @@ The output files are also FASTQ files. It should be smaller than our input file 
     -rw-------. 1 z5342988 unsw 360M Feb 19 09:29 Adapter_SRR306844chr1_chr3.trim.fastq.gz
     -rw-------. 1 z5342988 unsw 392M Feb 19 09:07 Adapter_SRR306844chr1_chr3.fastq.gz
 
+
 We have just successfully run Trimmomatic on one of our FASTQ files! However, there is some bad news. Trimmomatic can only operate on one sample at a time, and we have more than one sample. The good news is that we can quickly use a `for` loop to iterate through our sample files!
-    
- 
+
+
+Before running the for loops below, we need to remove the singly run fastq.gz
+
+    $ ls *trim*
+    $ rm *trim*
+
+
+This is too computationally demanding to perform without requesting resources from the HPC. 
+Please either a) run interactively b) submit to the hpc using `qsub` command.
+
+    $ qsub -I
+
     $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-SE.fa"
     $ for infile in *.fastq.gz
     > do
@@ -240,8 +253,6 @@ We have just successfully run Trimmomatic on one of our FASTQ files! However, th
     >                ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
     > done
 
-This is too computationally demanding to perform without requesting resources from the HPC. 
-Please either a) run interactively b) submit to the hpc
 
 
 

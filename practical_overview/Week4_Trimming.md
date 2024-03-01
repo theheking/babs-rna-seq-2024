@@ -37,12 +37,12 @@ Cleaning reads
 
 In the previous session, we took a high-level look at the quality of each of our samples using FastQC and multi-qc. We visualized per-base quality graphs showing the distribution of read quality at each base across all reads in a sample and extracted information about which samples fail which quality checks. Some of our samples failed quite a few quality metrics used by FastQC. This does not mean, though, that our samples should be thrown out! It is very common to have some quality metrics fail, and this may or may not be a problem for your downstream application. For our RNA-seq workflow, we will be removing some of the low quality sequences to reduce our false positive rate due to sequencing error.
 
-We will use a program called [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to filter poor quality reads and trim poor quality bases from our samples.
+We will use a program called [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to filter poor-quality reads and trim poor-quality bases from our samples.
 
 Trimmomatic options
 -------------------
 
-Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options. (Hint: might need to use ` module load`)
+Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options. ** (Hint: might need to use ` module load`) **
 
     $ trimmomatic
     
@@ -149,10 +149,18 @@ Please look at the possible adapters that can be used for the adapter sequences
 
 If you look at the content inside one of these fasta files. You will realise it is filled with short sequences of oligonucleotides.
 
-    $ head /srv/scratch/zID/babs3291/adapters/NexteraPE-PE.fa
+    $ head /srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa
     
-    $ >PrefixNX/1
-    $ AGATGTGTATAAGAGACAG
+    $ >PrefixPE/1
+    $ TACACTCTTTCCCTACACGACGCTCTTCCGATCT
+    $ >PrefixPE/2
+    $ GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
+    $ >PE1
+    $ TACACTCTTTCCCTACACGACGCTCTTCCGATCT
+    $ >PE1_rc
+    $ AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA
+    $ >PE2
+    $ GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
 
 
 Use the three steps above to specify one of these files in the subsequent trimming command. 
@@ -165,7 +173,7 @@ We will also use a sliding window of size 4 to remove bases if their phred score
 
 This command will take a few minutes to run.
 
-    $ ADAPTERSEQ="srv/scratch/zID/babs3291/adapters/TruSeq2-SE.fa"
+    $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-SE.fa"
     $ trimmomatic SE -phred33 Adapter_SRR306844chr1_chr3.fastq.gz \
                     Adapter_SRR306844chr1_chr3.trim.fastq.gz \
                     ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
@@ -184,11 +192,12 @@ This command will take a few minutes to run.
 
  A way of thinking about the files you are using 
  If you have paired-end sequences, you should run the command from before. 
- 
-     $ trimmomatic PE -threads 4 SRR_1056_1.fastq.gz SRR_1056_2.fastq.gz  \
-                  SRR_1056_1.trimmed.fastq.gz SRR_1056_1un.trimmed.fastq.gz \
-                  SRR_1056_2.trimmed.fastq.gz SRR_1056_2un.trimmed.fastq.gz \
-                  ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36     
+
+     $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa"
+     $ trimmomatic PE -threads 4 EXAMPLE_1.fastq.gz EXAMPLE_2.fastq.gz  \
+                  EXAMPLE_1.trimmed.fastq.gz EXAMPLE_1un.trimmed.fastq.gz \
+                  EXAMPLE_2.trimmed.fastq.gz EXAMPLE_2un.trimmed.fastq.gz \
+                  ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36     
                   
     
     
@@ -199,11 +208,12 @@ This command will take a few minutes to run.
 > 
 > 1) What percent of reads did you discard from your sample? 
 > 2) What percent of reads did we keep both pairs?
-> 3) What biological samples are more likely to have a higher percentage of trimming? 
+> 3) What biological samples are more likely to have a higher percentage of trimming?
+>    
 
     
     
-You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. It is always a good idea to double-check this or to enter the quality encoding manually.
+You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. It is always a good idea to double-check this or manually enter the quality encoding.
 
 We can confirm that we have our output files:
 

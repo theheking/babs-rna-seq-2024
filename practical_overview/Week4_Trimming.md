@@ -78,9 +78,9 @@ We will use only a few of these options and trimming steps in our analysis. It i
 
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
-    $ trimmomatic PE -threads 4 SRR_1056_1.fastq SRR_1056_2.fastq  \
-                  SRR_1056_1.trimmed.fastq SRR_1056_1un.trimmed.fastq \
-                  SRR_1056_2.trimmed.fastq SRR_1056_2un.trimmed.fastq \
+    $ trimmomatic PE -threads 4 EXAMPLE_1.fastq EXAMPLE_2.fastq  \
+                  EXAMPLE_1.trimmed.fastq EXAMPLE_1un.trimmed.fastq \
+                  EXAMPLE_2.trimmed.fastq EXAMPLE_2un.trimmed.fastq \
                   ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36     
                   
                   

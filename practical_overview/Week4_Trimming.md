@@ -50,6 +50,7 @@ Which will give you the following output:
 First, you need to identify if your sample has paired end (`PE`) or single end (`SE`) reads. Next, we specify what flag we would like to run. For example, you can specify `threads` to indicate the number of processors on your computer that you want Trimmomatic to use. In most cases using multiple threads (processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by positional arguments, meaning the order in which you specify them is important. In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect 1 file as input, after which you can enter the optional settings and lastly the name of the output file.
 
 
+
 | option         | meaning                                                                                       |
 | -------------- | --------------------------------------------------------------------------------------------- |
 | `inputFile1`   | Input reads to be trimmed. Typically the file name will contain an `_1` or `_R1` in the name. |
@@ -76,15 +77,19 @@ The last thing trimmomatic expects to see is the trimming parameters:
 
 We will use only a few of these options and trimming steps in our analysis. It is important to understand the steps you are using to clean your data. For more information about the Trimmomatic arguments and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf).
 
+
+ ![Paired_EndTrimming](../assets/img/paired_endtrimming.png)
+
+
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
-    $ trimmomatic PE -threads 4 EXAMPLE_1.fastq EXAMPLE_2.fastq  \
-                  EXAMPLE_1.trimmed.fastq EXAMPLE_1un.trimmed.fastq \
-                  EXAMPLE_2.trimmed.fastq EXAMPLE_2un.trimmed.fastq \
+    $ trimmomatic PE -threads 4 EXAMPLE_1.fastq.gz EXAMPLE_2.fastq.gz  \
+                  EXAMPLE_1.trimmed.fastq.gz EXAMPLE_1un.trimmed.fastq.gz \
+                  EXAMPLE_2.trimmed.fastq.gz EXAMPLE_2un.trimmed.fastq.gz \
                   ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36     
                   
                   
-    NB. You will have to edit this command if you have paired end sample. 
+    NB. You will have to edit this command if you have paired-end sample. 
 
 In this example, we have told Trimmomatic:
 
@@ -93,12 +98,12 @@ In this example, we have told Trimmomatic:
 | ------------------------------ | --------------------------------------------------------------------------------------------------------- |
 | `PE`                           | that it will be taking a paired end file as input                                                         |
 | `-threads 4`                   | to use four computing threads to run (this will speed up our run)                                         |
-| `SRR_1056_1.fastq`             | the first input file name                                                                                 |
-| `SRR_1056_2.fastq`             | the second input file name                                                                                |
-| `SRR_1056_1.trimmed.fastq`     | the output file for surviving pairs from the `_1` file                                                    |
-| `SRR_1056_1un.trimmed.fastq`   | the output file for orphaned reads from the `_1` file                                                     |
-| `SRR_1056_2.trimmed.fastq`     | the output file for surviving pairs from the `_2` file                                                    |
-| `SRR_1056_2un.trimmed.fastq`   | the output file for orphaned reads from the `_2` file                                                     |
+| `EXAMPLE_1.fastq.gz`             | the first input file name                                                                                 |
+| `EXAMPLE_2.fastq.gz`             | the second input file name                                                                                |
+| `EXAMPLE_1.trimmed.fastq.gz`     | the output file for surviving pairs from the `_1` file                                                    |
+| `EXAMPLE_1un.trimmed.fastq.gz`   | the output file for orphaned reads from the `_1` file                                                     |
+| `EXAMPLE_2.trimmed.fastq.gz`     | the output file for surviving pairs from the `_2` file                                                    |
+| `EXAMPLE_2un.trimmed.fastq.gz`   | the output file for orphaned reads from the `_2` file                                                     |
 | `ILLUMINACLIP:SRR_adapters.fa` | to clip the Illumina adapters from the input file using the adapter sequences listed in `SRR_adapters.fa` |
 | `SLIDINGWINDOW:4:20`           | to use a sliding window of size 4 that will remove bases if their phred score is below 20                 |
     
@@ -122,9 +127,9 @@ We are going to run Trimmomatic on one of my single-end samples. While using Fas
     
 
 
-The adapter sequence you should specify with be dependent on:
+The adapter sequence you should specify will be dependent on:
 1. the platform your samples are run on (check out the GEO website that is relevant to your samples)
-2. whether your samples are paired or single end files
+2. whether your samples are paired or single-end files
 3. what adapter sequences are shown to be present in the adapter content graph in your multiqc/fastqc
 
 Please look at the possible adapters that can be used for the adapter sequences 
@@ -143,22 +148,21 @@ If you look at the content inside one of these fasta files. You will realise it 
 
 Use the three steps above to specify one of these files in the subsequent trimming command. 
 
-
-
-We will also use a sliding window of size 4 that will remove bases if their phred score is below 20 (like in our example above). We will also discard any reads that do not have at least 25 bases remaining after this trimming step. Three additional pieces of code are also added to the end of the ILLUMINACLIP step. These three additional numbers (2:40:15) tell Trimmimatic how to handle sequence matches to the TruSeq adapters. A detailed explanation of how they work is advanced for this particular lesson. For now we will use these numbers as a default and recognize they are needed to for Trimmomatic to run properly. 
-
  ![SlidingWindow](../assets/img/slidingwindow.png)
+
+We will also use a sliding window of size 4 to remove bases if their phred score is below 20 (like in our example above). We will also discard any reads that do not have at least 25 bases remaining after this trimming step. Three additional pieces of code are also added to the end of the ILLUMINACLIP step. These three additional numbers (2:40:15) tell Trimmimatic how to handle sequence matches to the TruSeq adapters. A detailed explanation of how they work is advanced for this particular lesson. For now, we will use these numbers as a default and recognize they are needed for Trimmomatic to run properly. 
+
 
 
 This command will take a few minutes to run.
 
     $ ADAPTERSEQ="srv/scratch/zID/babs3291/adapters/TruSeq2-SE.fa"
-    $ trimmomatic SE -phred33 SRR306844chr1_chr3.fastq.gz \
-                    SRR306844chr1_chr3.trim.fastq.gz \
+    $ trimmomatic SE -phred33 Adapter_SRR306844chr1_chr3.fastq.gz \
+                    Adapter_SRR306844chr1_chr3.trim.fastq.gz \
                     ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
                         
     TrimmomaticSE: Started with arguments:
-    -phred33 SRR306844chr1_chr3.fastq.gz SRR306844chr1_chr3.trim.fastq.gz ILLUMINACLIP:/srv/scratch/z5342988/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+    -phred33 Adapter_SRR306844chr1_chr3.fastq.gz Adapter_SRR306844chr1_chr3.trim.fastq.gz ILLUMINACLIP:/srv/scratch/z5342988/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
     Automatically using 4 threads
     Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
     Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
@@ -167,11 +171,10 @@ This command will take a few minutes to run.
     Input Reads: 5416173 Surviving: 5165820 (95.38%) Dropped: 250353 (4.62%)
     TrimmomaticSE: Completed successfully
     
- ![Paired_EndTrimming](../assets/img/paired_endtrimming.png)
 
 
  A way of thinking about the files you are using 
- If you have paired end sequences, you should run the command from before. 
+ If you have paired-end sequences, you should run the command from before. 
  
      $ trimmomatic PE -threads 4 SRR_1056_1.fastq.gz SRR_1056_2.fastq.gz  \
                   SRR_1056_1.trimmed.fastq.gz SRR_1056_1un.trimmed.fastq.gz \
@@ -195,17 +198,17 @@ You may have noticed that Trimmomatic automatically detected the quality encodin
 
 We can confirm that we have our output files:
 
-    $ ls SRR306844*
+    $ ls Adapter_SRR306844*
     
 
 The output files are also FASTQ files. It should be smaller than our input file because we have removed reads. We can confirm this:
 
-    $ ls -lh SRR306844*
+    $ ls -lh Adapter_SRR306844*
 
-    -rw-------. 1 z5342988 unsw 360M Feb 19 09:29 SRR306844chr1_chr3.trim.fastq.gz
-    -rw-------. 1 z5342988 unsw 392M Feb 19 09:07 SRR306844chr1_chr3.fastq.gz
+    -rw-------. 1 z5342988 unsw 360M Feb 19 09:29 Adapter_SRR306844chr1_chr3.trim.fastq.gz
+    -rw-------. 1 z5342988 unsw 392M Feb 19 09:07 Adapter_SRR306844chr1_chr3.fastq.gz
 
-We have just successfully run Trimmomatic on one of our FASTQ files! However, there is some bad news. Trimmomatic can only operate on one sample at a time and we have more than one sample. The good news is that we can use a `for` loop to iterate through our sample files quickly!
+We have just successfully run Trimmomatic on one of our FASTQ files! However, there is some bad news. Trimmomatic can only operate on one sample at a time, and we have more than one sample. The good news is that we can quickly use a `for` loop to iterate through our sample files!
     
  
 
@@ -223,7 +226,7 @@ Please either a) run interactively b) submit to the hpc
 
 
 
-If you have a paired end sequence the for loop with be different...
+If you have a paired end sequence, the for loop will be different...
 
     $ for infile in *_1.fastq.gz
     > do
@@ -245,7 +248,7 @@ If you have a paired end sequence the for loop with be different...
 > Exercise
 > --------
 > 
-> 1) We trimmed our fastq files with Nextera adapters, but there are other adapters that are commonly used. What other adapter files came with Trimmomatic?
+> 1) We trimmed our fastq files with Nextera adapters, but other adapters are commonly used. What other adapter files came with Trimmomatic?
 > 2) What is the purpose of adapter sequences?
 >
     

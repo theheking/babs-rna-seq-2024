@@ -25,7 +25,21 @@ Alignment With Kallisto
 
 Introduction
 ==============
-Despite challenges of RNA-seq, it is a very useful experiment and researchers have worked through many of the challenges above to develop software that can help us infer what is happening in the transcriptome.
+Despite the challenges of RNA-seq, it is a very useful experiment. Researchers have developed different software to help us infer what is happening in the transcriptome.
+
+
+Main methods of alignment
+==============================
+
+You can either align your trimmed, filtered and quality-controlled reads from your sample to the:
+a) genome 
+b) transcriptome
+
+
+Both have their advantages and disadvantages. 
+
+
+
 
 Kallisto is a quick, highly-efficient software for quantifying transcript abundances in an RNA-Seq experiment. Even on a typical laptop, Kallisto can quantify 30 million reads in less than 3 minutes.
 

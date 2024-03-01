@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "This scripts is to concatenate all abundance tsv to form count matrix table"
+echo "This script concatenates all abundance tsv to form a count matrix table"
 echo "*** Please be in the main directory which contains /samplename/abundance.tsv****"
 #echo "read in all abundance tsv files"
 abundance_tsv=`ls */abundance.tsv`

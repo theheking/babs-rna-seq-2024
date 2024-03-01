@@ -1,4 +1,4 @@
-#!/bash
+#!/bin/bash
 
 echo "This scripts is to concatenate all abundance tsv to form count matrix table"
 echo "*** Please be in the main directory which contains /samplename/abundance.tsv****"

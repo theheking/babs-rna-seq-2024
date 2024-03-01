@@ -23,6 +23,15 @@ Trimming and Filtering
 > *   Write `for` loops with two variables.
 >     
 
+
+Our pipeline
+=============
+
+
+ ![SlidingWindow](../assets/img/pipeline.png)
+
+
+
 Cleaning reads
 ==============
 

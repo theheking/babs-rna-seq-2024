@@ -274,7 +274,7 @@ If you have a paired end sequence, the for loop will be different...
 
 We have now completed the trimming and filtering steps of our quality control process! Before we move on, let’s move our trimmed FASTQ files to a new subdirectory within our `babs3291` directory.
 
-    $ cd /srv/scratch/z5342988/babs3291/
+    $ cd /srv/scratch/zID/babs3291/
     $ mkdir trimmed_fastq
     $ mv ./untrimmed_fastq/*.trim* trimmed_fastq
     $ ls

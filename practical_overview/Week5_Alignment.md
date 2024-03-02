@@ -15,9 +15,9 @@ Alignment With Kallisto
 > 
 > **Objectives**
 > 
-> *   Understand the difference between pseudo-alignment and alignment
+> *  Understand the difference between pseudo-alignment and alignment
 >     
-> *  Select the correct parameters for kallisto for your sample
+> *  Select the correct parameters for Kallisto for your sample
 >     
 > *  Submit your job to the cluster
 
@@ -25,19 +25,39 @@ Alignment With Kallisto
 
 Introduction
 ==============
-Despite the challenges of RNA-seq, it is a very useful experiment. Researchers have developed different software to help us infer what is happening in the transcriptome.
+The processing of the biological  RNA-seq, it is a very useful experiment. Researchers have developed different software to help us infer what is happening in the transcriptome.
+
+Genes vs Transcripts - An example: *ESR1*
+=========================================
+[INSERT OESTROGEN IMAGE HERE]
+
+- high ERα66 levels conferred good prognosis, whereas high ERα36 conferred poor prognosis
 
 
-Main methods of alignment
-==============================
 
-You can either align your trimmed, filtered and quality-controlled reads from your sample to the:
-a) genome 
-b) transcriptome
+Main methods of quantifying expression
+=====================================
+
+You can either align your trimmed, filtered and quality-controlled reads via two methods:
+a) *alignment* to the **genome**
+b) *pseudo-alignment* to the **transcriptome**
+
+
+Advantages of Pseudo-alignment
+===============================
+- Quicker and less memory intensive than traditional aligners
+- Transcript level quantification
+- 
+
+Disadvantages of Pseudo-alignment
+===============================
+
 
 
 Both have their advantages and disadvantages. 
 
+
+-=A in depth comparison of alignment vs pseudoalignment, pros and cons of each Maybe briefly mention some of the tools out there for short read / long read alignment to relate back to their lectures 
 
 
 

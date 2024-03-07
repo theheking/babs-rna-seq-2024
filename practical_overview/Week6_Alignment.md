@@ -54,7 +54,7 @@ Below is a simplified figure of how pseudo-alignment would work. We use a refere
 | Reference        | Transcriptome                                                                                                   | Genome                                                                         |
 | Output           | Number of reads per transcript                                                                                  | List of reads and their coordinates across the genome                          |
 | Output file type | Transcript x Count Table                                                                                        | BAM File                                                                       |
-| Algorithm        | (Seed-searching)[https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html] | (K-mer)[https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html] |
+| Algorithm        | [Seed-searching](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html) | [K-mer](https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html) |
 
 
 ![STAR](../assets/img/alignment_STAR_step1.png)

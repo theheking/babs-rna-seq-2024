@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 5 Alignment with Kallisto 
+title: Week 6 Alignment with Kallisto 
 ---
 
 Alignment With Kallisto
@@ -25,48 +25,57 @@ Alignment With Kallisto
 
 Introduction
 ==============
-The processing of the biological  RNA-seq, it is a very useful experiment. Researchers have developed different software to help us infer what is happening in the transcriptome.
+The biological data you get from RNA-seq is amazing, but as you have seen with your papers and the lectures, there is a broad range of types of RNA sequencing, from APEX sequencing to long-read sequencing. Each type can be applied to answer a slightly different biological question. We are using short-read bulk RNA sequencing, and researchers have developed different software to help us infer what is happening in the transcriptome. Different software has been developed to quantify rates of transcription or alternative splicing. We are quantifying transcript level expression per sample. 
 
 Genes vs Transcripts - An example: *ESR1*
 =========================================
-[INSERT OESTROGEN IMAGE HERE]
+![./assests/img/oestrogen.png](./assests/img/oestrogen.png)
+**Fig. 1 - Gene vs Transcript Example with ESR1**
 
-- high ERα66 levels conferred good prognosis, whereas high ERα36 conferred poor prognosis
 
-
+Above, we can see an example of how multiple transcripts are expressed from one gene, **ESR1**. Each transcript, when translated, can even have distinct biological functions on the protein level. These can even be linked to patient outcomes, such as in the example above; patients with high ERα66 levels had better prognostic outcomes than patients with high ERα36. [1] Every transcript is made up of multiple exons that have been spliced together. The quantification of every transcript can be on a whole transcript or exon-by-exon. There are advantages and disadvantages of both.   
 
 Main methods of quantifying expression
 =====================================
 
 You can either align your trimmed, filtered and quality-controlled reads via two methods:
-a) *alignment* to the **genome**
-b) *pseudo-alignment* to the **transcriptome**
+a) *alignment* to the **genome** across *exons* and *introns* e.g. STAR
+b) *pseudo-alignment* to the **transcriptome** to *transcripts* e.g. kallisto 
+
+Below is a simplified figure of how pseudo-alignment would work. We use a reference file (FASTA format) containing every transcript for every gene expressed across the human genome. 
 
 
-Advantages of Pseudo-alignment
-===============================
+![./assests/img/gene_transcript.png](./assests/img/gene_transcript.png)
+**Fig. 2 - Gene vs Transcript Quantification with Kallisto**
+
+|                  | Pseudo-alignment                                                                                                | Alignment                                                                      |
+| ---------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Input            | RNA-seq                                                                                                         | RNA-seq                                                                        |
+| Reference        | Transcriptome                                                                                                   | Genome                                                                         |
+| Output           | Number of reads per transcript                                                                                  | List of reads and their coordinates across the genome                          |
+| Output file type | Transcript x Count Table                                                                                        | BAM File                                                                       |
+| Algorithm        | (Seed-searching)[https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html] | (K-mer)[https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html] |
+
+
+![STAR](./assests/img/alignment_STAR_step1.png)
+**Fig. 3 - Example of how Alignment works**
+
+Advantages and Disadvantages of Pseudo-alignment
+================================================
 - Quicker and less memory intensive than traditional aligners
 - Transcript level quantification
-- 
-
-Disadvantages of Pseudo-alignment
-===============================
-
-
-
-Both have their advantages and disadvantages. 
+- Intuitive mapping of reads across multiple transcripts
+- Results limited by the quality of transcript annotation (consider different species)
+- Cannot quantify SNPs or splice variants
+- Limited to known transcripts, not novel 
 
 
--=A in depth comparison of alignment vs pseudoalignment, pros and cons of each Maybe briefly mention some of the tools out there for short read / long read alignment to relate back to their lectures 
+Despite this, Kallisto is a quick, highly efficient software for quantifying transcript abundances in an RNA-Seq experiment. Kallisto can quantify 30 million reads in less than 3 minutes even on a typical laptop.
 
-
-
-Kallisto is a quick, highly-efficient software for quantifying transcript abundances in an RNA-Seq experiment. Even on a typical laptop, Kallisto can quantify 30 million reads in less than 3 minutes.
-
-In order to analyze data with Kallisto we need several inputs:
+To analyze data with Kallisto, we need several inputs:
 
 1. Trimmed and filtered FASTQ files
-2. **A Reference transcriptome**  This is a file that has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Unlike a genome, the transcriptome is only coding genes.
+2. **A Reference transcriptome**  This file has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Unlike a genome, the transcriptome only coding genes.
 
 
 
@@ -85,9 +94,9 @@ Pseudoalignment and Genomics Word Search Explained
 =====================================================
 Alignment of reads is an expansive topic. Several reviews cover some of the important topics including [Stark et. al. 2019](https://www.nature.com/articles/s41576-019-0150-2). This [blog post](http://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html) and the [kallisto paper](https://www.nature.com/articles/nbt.3519) are further readings to get a deep understanding of the subject.
 
-To try and reduce this problem to its most basic, the Leo Pachter Lab used an analogy. 
+The Leo Pachter Lab used an analogy to try to reduce this problem to its most basic. 
 
-In the traditional case, when software does alignment, it tries to match a read to the genome.
+Traditionally, when software does an alignment, it tries to match a read to the genome.
  
 >
 >       Genome: ACTACGTAGCCGTCAAATATCCCGGGTATCGTACGATCGACGT
@@ -108,7 +117,7 @@ If we move things around we can find the match:
   
 In this example, we have one mismatch. Although finding this match was simple, the genome is far more complex.
 
-In the word search below is the word “DNA”. Can you find it? It may take you a while. Searching for words is a process similar to taking sequencing reads and trying to match them to the genome. Computers are fast, but just as matching a small word (3 letters) in a large (1639 letter) word puzzle is time-intensive, it take a long time to match millions of short reads against genomes of billions of nucleotides.
+In the word search below is the word “DNA”. Can you find it? It may take you a while. Searching for words is similar to sequencing reads and trying to match them to the genome. Computers are fast, but just as matching a small word (3 letters) in a large (1639 letter) word puzzle is time-intensive, it take a long time to match millions of short reads against genomes of billions of nucleotides.
 
 >CUSVFVMAASJFHUTMNCCQMBVXOLBEETYHSRBWOSEY
 >MOBJEYXAZMPMFENZHQKMHHSCZUXUQYEBQONJVYWH
@@ -151,11 +160,11 @@ In the word search below is the word “DNA”. Can you find it? It may take you
 >MWFHPISMEIUIVZVBEUKTFOUADMUDXAJSGYHLXUSP
 >OSIVVLZMDTLDMCLGZLEGWLPVPWOLNERAINTAESFR
  
-Pseudoalignment is one approach to this computational “word search”. It takes advantage of a trick to speed up performance without loosing accuracy. Take the second line in our “DNA” word search puzzle:
+Pseudoalignment is one approach to this computational “word search”. It takes advantage of a trick to speed up performance without losing accuracy. Take the second line in our “DNA” word search puzzle:
 
 >MOBJEYXAZMPMFENZHQKMHHSCZUXUQYEBQONJVYWH
 
-There is no “D” in this line. True, We don’t know that until we read the entire line, but once we realize this line can’t possible be a match without a “D” We can ignore this line. Word search puzzles don’t have to be read in just one direction (words might be on diagonals, backwards, etc.), but now consider what happens in the pseudoalignment “word search”. In this case we are searching not the entire genome, but linear transcripts:
+There is no “D” in this line. True, We don’t know that until we read the entire line, but once we realize this line can’t possible be a match without a “D” We can ignore this line. Word search puzzles don’t have to be read in just one direction (words might be on diagonals, backwards, etc.), but now consider what happens in the pseudo alignment “word search”. In this case we are searching not the entire genome, but linear transcripts:
 
 
 >Transcript 1: CUSVFVMAASJFHUTMNCCQMBVXOLBEETYHSRBWOSEY
@@ -178,11 +187,6 @@ We can immediately eliminate transcripts that don’t contain the letter D:
 Immediately, the problem is made easier by throwing away transcripts that could not contain the answer. This is not an exact analogy, but basically, rather than trying to match every read to every position in the genome, Kallisto is faster because 1) we are only matching to the transcriptome (a subset of the genome) and 2) we focus only on transcripts that could have generated a particular read.
 
 
-> Note
-Pseudoalignment is just one approach to aligning RNA-Seq reads. Other software will fully align the read to a transcriptome or genome. These methods have different advantages and requirements.
-
-
-
 Step 1 Genome indexing for Kallisto
 ===================================
 There are a few files we need to perform the first step of Kallisto
@@ -191,9 +195,7 @@ There are a few files we need to perform the first step of Kallisto
 - Reference annotations: A file with information on the location and structure of the genes in the human genome and a file with chromosome details.
   
   
-  
-
-We will now use Kallisto's indexing function to prepare the transcriptome for analysis. The "Index" is a lookup table for the transcriptome that allows it to be more easily searched by Kallisto. First, let's organize our files by creating a new directory to hold our kallisto work.
+We will now use Kallisto's indexing function to prepare the transcriptome for analysis. The "Index" is a lookup table for the transcriptome that allows Kallisto to search it more easily. First, let's organize our files by creating a new directory to hold our Kallisto work.
 
     $ mkdir -p /srv/scratch/zID/kallisto_human_ref/
  
@@ -231,7 +233,7 @@ Next, run the indexing command. This prepares the transcriptome so that we can p
 
 Step 2 Pseudoalignment of reads with Kallisto
 ============================================
-In this final step, we will run Kallisto on all of our files to quantify the reads. We will write a for loop to do this. Let's see once again our trimmed reads.
+In this final step, we will run Kallisto on all of our files to quantify the reads. We will write a for loop to do this. Let's see our trimmed reads once again.
 
 Using your trimmed reads
 
@@ -334,6 +336,7 @@ If you have paired-end reads. **Hint: check the string provided as the second pa
 
 
   
-  Adapted from https://cyverse-leptin-rna-seq-lesson-dev.readthedocs-hosted.com
-  and https://pachterlab.github.io/kallisto/manual
+[1] Chamard-Jovenin, C., Jung, A.C., Chesnel, A. et al. From ERα66 to ERα36: a generic method for validating a prognosis marker of breast tumor progression. BMC Syst Biol 9, 28 (2015). https://doi.org/10.1186/s12918-015-0178-7
+[2] Adapted from https://cyverse-leptin-rna-seq-lesson-dev.readthedocs-hosted.com
+[3] Adapted from  https://pachterlab.github.io/kallisto/manual
   

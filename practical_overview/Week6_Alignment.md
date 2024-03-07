@@ -208,7 +208,7 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
       
  OR, if the expected download time is ages, please copy from the communal folder.
  
-      $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz /srv/scratch/[your_zID]/kallisto_human_ref/
+      $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz /srv/scratch/zID/kallisto_human_ref/
       
 2. We will also need the human GTF file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
   
@@ -216,7 +216,14 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
         
  OR, if the expected download time is large, please copy from the communal folder.
  
-        $ scp  /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.109.gtf.gz /srv/scratch/[your_zID]/kallisto_human_ref/
+        $ scp  /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.109.gtf.gz /srv/scratch/zID/kallisto_human_ref/
+
+
+Remember to request resources using qsub (NB. you do not get online access when not on the login node) 
+
+        $ qsub -I
+        $ cd /srv/scratch/zID/kallisto_human_ref/
+
         
 Also, must unzip the gtf above. This will take the gtf from being compressed to human readable.
         
@@ -246,7 +253,7 @@ We need to run Kallisto on all of your files. Run the command below on one of yo
 Single-end:
 
 
-    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/SRR306844chr1_chr3.trimmed.fastq.gz"
+    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844chr1_chr3.trimmed.fastq.gz"
  
     $ kallisto quant \
      --single\
@@ -255,19 +262,17 @@ Single-end:
      --fragment-length=200\
      --sd=20\
      --output-dir=output\
-     --genomebam\
      --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTA]
  
  
 For paired-end reads, you need two files as input.
 
-    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/SRR306844*.trimmed.fastq.gz"
+    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844*.trimmed.fastq.gz"
  
     $ kallisto quant \
      --threads=8\
      --index=[insert_location_your_transcriptome] \
      --output-dir=output\
-     --genomebam\
      --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTA}
      
      

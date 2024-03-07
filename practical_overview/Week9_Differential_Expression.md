@@ -67,7 +67,7 @@ This file contains the counts of one sample. For input into DEGUST, you will hav
 Please download this [script](https://github.com/theheking/babs-rna-seq/blob/gh-pages/metadatafiles/merge_abundance_files.sh) using `wget`. In the main folder that you have your kallisto results.
 
         $ cd /srv/scratch/zID/babs3291/
-        $ wget https://github.com/theheking/babs-rna-seq/raw/gh-pages/metadatafiles/merge_abundance_files.sh 
+        $ wget https://github.com/theheking/babs-rna-seq-2024/raw/gh-pages/metadatafiles/merge_abundance_files.sh 
         $ bash merge_abundance_files.sh
         This scripts is to concatenate all abundance tsv to form count matrix table
         ***Please be in the main directory which contains /samplename/abundance.tsv***
@@ -83,9 +83,10 @@ This `transcript_counts.csv` is the file you will transfer to your local compute
 Transferring to local computer
 ------------------------------
 
-You will now be transferring your file to your local computer. First move into a directory that you can access. 
+You will now be transferring your file to your local computer. First move into a directory that you can access (e.g. Windows used pushed, see Week2C Writing Scripts. 
    
-    $ scp zID@katana.restech.unsw.edu.au:"/srv/scratch/zID/data/transcript_counts.csv" .
+    $ cd ~/Desktop
+    $ scp zID@katana.restech.unsw.edu.au:"/srv/scratch/zID/babs3291/transcript_counts.csv" .
     
 
 Uploading metadata and counts table to DEGUST 

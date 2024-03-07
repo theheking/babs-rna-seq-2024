@@ -128,7 +128,7 @@ Running Trimmomatic
 
 Now we will run Trimmomatic on our data. To begin, navigate to the data directory that contains your untrimmed fastq files:
 
-    $ cd /srv/scratch/zID/babs3291/
+    $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
 
 We are going to run Trimmomatic on one of my single-end samples. While using FastQC we saw that TruSeq adapters were present in our samples. The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
@@ -173,7 +173,10 @@ We will also use a sliding window of size 4 to remove bases if their phred score
 
 This command will take a few minutes to run.
 
+    $ qsub -I
+    $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
     $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-SE.fa"
+   
     $ trimmomatic SE -phred33 Adapter_SRR306844chr1_chr3.fastq.gz \
                     Adapter_SRR306844chr1_chr3.trim.fastq.gz \
                     ILLUMINACLIP:${ADAPTERSEQ}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
@@ -193,7 +196,9 @@ This command will take a few minutes to run.
 
  A way of thinking about the files you are using 
  If you have paired-end sequences, you should run the command from before. 
-
+    
+     $ qsub -I
+     $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
      $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa"
      $ trimmomatic PE -threads 4 EXAMPLE_1.fastq.gz EXAMPLE_2.fastq.gz  \
                   EXAMPLE_1.trimmed.fastq.gz EXAMPLE_1un.trimmed.fastq.gz \
@@ -214,7 +219,7 @@ This command will take a few minutes to run.
 
     
     
-You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. Double-checking this or manually entering the quality encoding is always a good idea.
+You may have noticed that Trimmomatic automatically detected the quality encoding of our sample. It is always a good idea to double-check this or manually enter the quality encoding.
 
 We can confirm that we have our output files:
 
@@ -241,7 +246,7 @@ Before running the for loops below, we need to remove the singly run fastq.gz
 This is too computationally demanding to perform without requesting resources from the HPC. 
 Please either a) run interactively b) submit to the hpc using `qsub` command.
 
-    $ qsub -I
+    $ cd /srv/scratch/zID/babs3291/untrimmed_fastq
 
     $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-SE.fa"
     $ for infile in *.fastq.gz

@@ -33,9 +33,10 @@ navbar-links:
     - Week 3 Using FASTQC For Data Quality Report: "practical_overview/Week3_FASTQC"
     - Week 4 Using Trimmomatic for Trimming and Filtering: "practical_overview/Week4_Trimming"
     - Week 5 Quiz and Prac Revision: "practical_overview/quiz"
- # Practical W6-10:
-   # - Week 6 Flexibility Week: "practical_overview/flex_week"
-#    - Week 7 Using Kallisto for Pseudoalignment: "practical_overview/Week5_Alignment#    
+  
+  Practical W6-10:
+     - Week 6 Flexibility Week: "practical_overview/flex_week"
+     - Week 7 Using Kallisto for Pseudoalignment: "practical_overview/Week5_Alignment#    
 #    - Week 8A Using DEGUST for Differential Expression Analysis: "practical_overview/Week9_Differential_Expression"
 #    - Week 8B Understanding the Theory Behind Differential Expression Analysis: "practical_overview/Week9_Differential_Expression_Theory"
 #    - Week 8C Explaining DE: "practical_overview/Week10_Explaining_DE_GeneOntology"

@@ -39,8 +39,10 @@ Main methods of quantifying expression
 =====================================
 
 You can either align your trimmed, filtered and quality-controlled reads via two methods:
-a) *alignment* to the **genome** across *exons* and *introns* e.g. STAR
-b) *pseudo-alignment* to the **transcriptome** to *transcripts* e.g. kallisto 
+
+  a) *alignment* to the **genome** across *exons* and *introns* e.g. STAR
+
+  b) *pseudo-alignment* to the **transcriptome** to *transcripts* e.g. kallisto 
 
 Below is a simplified figure of how pseudo-alignment would work. We use a reference file (FASTA format) containing every transcript for every gene expressed across the human genome. 
 

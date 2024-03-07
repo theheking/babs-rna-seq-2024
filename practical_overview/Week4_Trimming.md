@@ -263,7 +263,7 @@ Please either a) run interactively b) submit to the hpc using `qsub` command.
 
 If you have a paired end sequence, the for loop will be different...
 
-    $ ADAPTERSEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa"
+    $ ADAPTER_SEQ="/srv/scratch/zID/babs3291/adapters/TruSeq3-PE-2.fa"
     $ for infile in *_1.fastq.gz
     > do
     >   base=$(basename ${infile} _1.fastq.gz)

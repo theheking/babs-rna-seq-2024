@@ -33,7 +33,7 @@ Genes vs Transcripts - An example: *ESR1*
 **Fig. 1 - Gene vs Transcript Example with ESR1**
 
 
-Above, we can see an example of how multiple transcripts are expressed from one gene, **ESR1**. Each transcript, when translated, can even have distinct biological functions on the protein level. These can even be linked to patient outcomes, such as in the example above; patients with high ERα66 levels had better prognostic outcomes than patients with high ERα36. [1] Every transcript is made up of multiple exons that have been spliced together. The quantification of every transcript can be on a whole transcript or exon-by-exon. There are advantages and disadvantages of both.   
+Above, we can see an example of how multiple transcripts are expressed from one gene, **ESR1**. Each transcript, when translated, can even have distinct biological functions on the protein level. These can even be linked to patient outcomes, such as in the example above; patients with high ERα66 levels had better prognostic outcomes than patients with high ERα36. ^[1] Every transcript is made up of multiple exons that have been spliced together. The quantification of every transcript can be on a whole transcript or exon-by-exon. There are advantages and disadvantages of both.   
 
 Main methods of quantifying expression
 =====================================
@@ -342,6 +342,8 @@ If you have paired-end reads. **Hint: check the string provided as the second pa
 
   
 [1] Chamard-Jovenin, C., Jung, A.C., Chesnel, A. et al. From ERα66 to ERα36: a generic method for validating a prognosis marker of breast tumor progression. BMC Syst Biol 9, 28 (2015). https://doi.org/10.1186/s12918-015-0178-7
+
 [2] Adapted from https://cyverse-leptin-rna-seq-lesson-dev.readthedocs-hosted.com
+
 [3] Adapted from  https://pachterlab.github.io/kallisto/manual
   

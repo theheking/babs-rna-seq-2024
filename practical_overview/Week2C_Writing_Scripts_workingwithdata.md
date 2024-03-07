@@ -221,24 +221,24 @@ You can also rewrite your original script to include the job requests within the
 Transferring Data Between your Local Machine and Katana (there and back again)
 ----------------------------------------------------------------------
 
-### Uploading Data to your Virtual Machine with rsync
+### Uploading Data to your Virtual Machine with scp
 
-`rsync` stands for ‘remote sync’, and is a widely used UNIX tool for moving files between computers. The simplest way to use `rsync` is to run it in your local terminal, and use it to copy a single file:
+`scp` stands for ‘secure copy’, and is a widely used UNIX tool for moving files between computers. The simplest way to use `scp` is to run it in your local terminal, and use it to copy a single file:
 
-    rsync <file I want to move> <where I want to move it>
+    scp <file I want to move> <where I want to move it>
     
 
-Note that you are always running `rsync` locally, but that _doesn’t_ mean that you can only move files from your local computer. To move a file from your local computer to Katana, the command would look like this:
+Note that you are always running `scp` locally, but that _doesn’t_ mean that you can only move files from your local computer. To move a file from your local computer to Katana, the command would look like this:
 
-    $ rsync <local file> <katana login details>:"location"
+    $ scp <local file> <katana login details>:"location"
     
-e.g ***On my Mac computer**** rsync README.md zID@katana.restech.unsw.edu.au:"somewhere/nice/"
+e.g ***On my Mac computer**** scp README.md zID@katana.restech.unsw.edu.au:"somewhere/nice/"
     
 To move it back to your local computer, you re-order the `to` and `from` fields:
 
-    $ rsync <katana login details> <local file>:"location"
+    $ scp <katana login details> <local file>:"location"
     
-e.g ***On my Mac computer**** rsync zID@katana.restech.unsw.edu.au:"somewhere/nice/README.md" /somewhere/okay/
+e.g ***On my Mac computer**** scp zID@katana.restech.unsw.edu.au:"somewhere/nice/README.md" /somewhere/okay/
 
 
 **Tip:** If you are looking for another (or any really) text file in your home directory to use instead, try:

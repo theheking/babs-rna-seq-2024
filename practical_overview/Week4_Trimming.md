@@ -98,7 +98,7 @@ However, a complete command for Trimmomatic will look something like the command
                   ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36     
                   
                   
-    NB. You will have to edit this command if you have paired-end sample. 
+    NB. You will have to edit this command if you have single-end sample. 
 
 In this example, we have told Trimmomatic:
 

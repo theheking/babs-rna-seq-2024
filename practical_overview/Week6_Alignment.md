@@ -29,7 +29,7 @@ The biological data you get from RNA-seq is amazing, but as you have seen with y
 
 Genes vs Transcripts - An example: *ESR1*
 =========================================
-![./assests/img/oestrogen.png](./assests/img/oestrogen.png)
+![oestrogen](../assests/img/oestrogen.png)
 **Fig. 1 - Gene vs Transcript Example with ESR1**
 
 
@@ -45,7 +45,7 @@ b) *pseudo-alignment* to the **transcriptome** to *transcripts* e.g. kallisto
 Below is a simplified figure of how pseudo-alignment would work. We use a reference file (FASTA format) containing every transcript for every gene expressed across the human genome. 
 
 
-![./assests/img/gene_transcript.png](./assests/img/gene_transcript.png)
+![gene_transcript.png](../assests/img/gene_transcript.png)
 **Fig. 2 - Gene vs Transcript Quantification with Kallisto**
 
 |                  | Pseudo-alignment                                                                                                | Alignment                                                                      |
@@ -57,7 +57,7 @@ Below is a simplified figure of how pseudo-alignment would work. We use a refere
 | Algorithm        | (Seed-searching)[https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html] | (K-mer)[https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html] |
 
 
-![STAR](./assests/img/alignment_STAR_step1.png)
+![STAR](../assests/img/alignment_STAR_step1.png)
 **Fig. 3 - Example of how Alignment works**
 
 Advantages and Disadvantages of Pseudo-alignment
@@ -70,7 +70,7 @@ Advantages and Disadvantages of Pseudo-alignment
 - Limited to known transcripts, not novel 
 
 
-Despite this, Kallisto is a quick, highly efficient software for quantifying transcript abundances in an RNA-Seq experiment. Kallisto can quantify 30 million reads in less than 3 minutes even on a typical laptop.
+Despite this, Kallisto is a quick, highly efficient software for quantifying transcript abundances in an RNA-Seq experiment. Kallisto can quantify 30 million reads in less than 3 minutes, even on a typical laptop.
 
 To analyze data with Kallisto, we need several inputs:
 

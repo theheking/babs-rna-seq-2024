@@ -284,7 +284,8 @@ If you have a paired end sequence, the for loop will be different...
 > Exercise
 > --------
 > 
-> 1) We trimmed our fastq files with Nextera adapters, but other adapters are commonly used. What other adapter files came with Trimmomatic?
+> 1) We trimmed our fastq files with TruSeq adapters, but other adapters are commonly used. What other adapter files came with Trimmomatic?
+>    
 > 2) What is the purpose of adapter sequences?
 >
     

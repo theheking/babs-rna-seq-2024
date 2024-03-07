@@ -271,7 +271,7 @@ If you have a paired end sequence, the for loop will be different...
     >   trimmed_1="${base}_1.trimmed.fastq.gz"
     >   trimmed_2="${base}_2.trimmed.fastq.gz"
     >   untrimmed_1="${base}_1.untrimmed.fastq.gz"
-    >   untrimmed_2="${base}_2.untrimmed.fastq.gz
+    >   untrimmed_2="${base}_2.untrimmed.fastq.gz"
     >   trimmomatic PE -phred33 -threads 4 ${infile} ${infile_2} \
                   ${trimmed_1} ${untrimmed_1} \
                   ${trimmed_2} ${untrimmed_2} \

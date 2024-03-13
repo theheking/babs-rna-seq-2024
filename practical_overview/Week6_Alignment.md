@@ -312,7 +312,7 @@ If you have single-end reads.
     $ cd /srv/scratch/zID/babs3291/trimmed_fastq/
     $ for infile in *.trimmed.fastq.gz
           do
-          base=$(basename ${infile} trimmed.fastq.gz)
+          base=$(basename ${infile} .trimmed.fastq.gz)
           outdir="${base}"
           kallisto quant \
            --single\

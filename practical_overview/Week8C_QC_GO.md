@@ -10,7 +10,7 @@ title: Week 8C - More Theory Behind DE Analysis
 > --------
 >  **Objectives**
 > *   Understand what isoforms are being used as input to gene ontology analysis
-> *   
+>   
 
 
 ---------------------------------------

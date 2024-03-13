@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 8C - Theory Behind DE Analysis
+title: Week 8C - More Theory Behind DE Analysis
 ---
 
  Week 8C - Understanding QC on Sample and Gene-level and Getting to Grips With Gene Ontology

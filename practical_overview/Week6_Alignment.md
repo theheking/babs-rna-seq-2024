@@ -264,7 +264,7 @@ Single-end:
     $ kallisto quant \
      --single\
      --threads=8\
-     --index=[insert_location_your transcriptome]\
+     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
      --fragment-length=200\
      --sd=20\
      --output-dir=output\
@@ -308,7 +308,7 @@ If you have single-end reads.
           kallisto quant \
            --single\
            --threads=8\
-           --index=[insert_location_your transcriptome]\
+           --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
            --fragment-length=200\
            --sd=20\
            --output-dir=${outdir}\

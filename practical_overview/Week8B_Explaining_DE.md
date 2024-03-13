@@ -41,7 +41,7 @@ This is performed by:
 
 
 
-2) Normalisation of Raw Read Counts
+ Normalisation of Raw Read Counts
 ===================================
 The first step in the DE analysis workflow is count normalization, which is necessary to compare gene expression between samples accurately. The counts of mapped reads for each gene are proportional to the expression of RNA (“interesting”) and many other factors (“uninteresting”). Normalization is the scaling of raw count values to account for the “uninteresting” factors. This way, the expression levels are more comparable between and within samples.
 
@@ -107,7 +107,7 @@ For example, in the table above, SampleA has a greater proportion of counts asso
 
 
 
-3) Fold Change and Log
+Fold Change and Log
 ========================
 
 Fold change can be calculated as the ratio between treatment and condition as below. However, it is limited because:

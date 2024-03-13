@@ -104,7 +104,7 @@ Using RPKM/FPKM normalization, the total number of RPKM/FPKM normalized counts f
 
 For example, in the table above, SampleA has a greater proportion of counts associated with XCR1 (5.5/1,000,000) than does sampleB (5.5/1,500,000) even though the RPKM count values are the same. Therefore, we cannot directly compare the counts for XCR1 (or any other gene) between sampleA and sampleB because the total number of normalized counts are different between samples.
 
-> _NOTE:_ [This video by StatQuest](http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/) shows in more detail why TPM should be used in place of RPKM/FPKM if needing to normalize for sequencing depth and gene length.
+> NB: [This video by StatQuest](http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/) shows in more detail why TPM should be used in place of RPKM/FPKM if needing to normalize for sequencing depth and gene length.
 
 
 
@@ -116,7 +116,7 @@ a) the magnitude of the change is the same but in opposite directions
 b) it is challenging to make a plot that shows 7 and 0.14 
 
  ![](../assets/img/norm_before.png)
-*Plot by Daisy Kavanagh*
+*Figure by Daisy Kavanagh*
 
 This is why we use log for normalisation. 
 ![](../assets/img/lognorm.png)
@@ -124,7 +124,7 @@ This is why we use log for normalisation.
 After log transformation, the skew of the data has been removed. As it is now symmetrical, changes of the same magnitude differ only by sign. In fact any base can be used for the log to achieve this, but the standard in RNA-seq is Log2, as it is most easy to interpret. A log2FC of 1 represents a doubling of the counts
 
  ![](../assets/img/norm_after.png)
-*Plot by Daisy Kavanagh*
+*Figure by Daisy Kavanagh*
 
 Fold Change and Significance
 ============================

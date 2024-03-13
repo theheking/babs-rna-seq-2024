@@ -64,15 +64,6 @@ In addition to examining how well the samples/replicates cluster together, there
 
 
 
-Understanding in context to DEGUST Graphs
-====================================
-- Volcano plot - displays logFC on the x-axis against -log10FDR. 
-Calculating the negative logarithm of the FDR means the most significantly differentially expressed genes have a higher -log10FDR value.
-![](../assets/img/volcanoplot.png)
-- Parallel Coordinates - displays logFC
-- Small Transcript plots in the right-hand corner- displays the CPM
-
-
 Understanding in Context to Gene Ontology Graphs
 ==========================================
 The gene ontology graphs represent biological processes upregulated in the test (cerebellum) compared to the control (heart). 

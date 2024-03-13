@@ -47,7 +47,7 @@ You can either align your trimmed, filtered and quality-controlled reads via two
 Below is a simplified figure of how pseudo-alignment would work. We use a reference file (FASTA format) containing every transcript for every gene expressed across the human genome. 
 
 
-![gene_transcript](../assets/img/gene_transcript2.png)
+![gene_transcript](../assets/img/gene_transcript_2.png)
 **Fig. 2 - Gene vs Transcript Quantification with Kallisto**
 
 |                  | Pseudo-alignment                                                                                                | Alignment                                                                      |

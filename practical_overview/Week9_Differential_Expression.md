@@ -33,7 +33,7 @@ So what does the count data actually represent? The count data used for differen
 ![](../assets/img/deseq_counts_overview.png)
 
 ***Note: We are using features that are transcripts, not genes***
-Usually you would sum all the transcript expression for a given gene. This would change a transcript x count matrix to form a gene x count matrix. To make the pipeline simple- we will not be doing this. 
+Usually you would sum all the transcript expression for a given gene. This would change a transcript x count matrix to form a gene x count matrix. To make the pipeline simple- we will *not* be doing this. 
 
 
 Counts and CPM
@@ -58,15 +58,14 @@ Preparing DEGUST Compatible Data
 
 Log onto katana. Change directory into the location that contains your aligned kallisto output `abundance.tsv`.
 
-        $ ssh zID@katana.restech.unsw.edu.au 
-        $ cd /srv/scratch/zID/babs3291/SRR306844chr1_chr3/
+        $ cd /srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844chr1_chr3
         $ ls abundance.tsv
       
-This file contains the counts of one sample. For input into DEGUST, you will have to form a count matrix table.  
+This file contains the counts of one sample. You will have to form a count matrix table for input into DEGUST.  
 
-Please download this [script](https://github.com/theheking/babs-rna-seq/blob/gh-pages/metadatafiles/merge_abundance_files.sh) using `wget`. In the main folder that you have your kallisto results.
+Please download this [script](https://github.com/theheking/babs-rna-seq-2024/blob/gh-pages/metadatafiles/merge_abundance_files.sh) using `wget`. In the main folder that you have your kallisto results.
 
-        $ cd /srv/scratch/zID/babs3291/
+        $ cd /srv/scratch/zID/babs3291/trimmed_fastq
         $ wget https://github.com/theheking/babs-rna-seq-2024/raw/gh-pages/metadatafiles/merge_abundance_files.sh 
         $ bash merge_abundance_files.sh
         This scripts is to concatenate all abundance tsv to form count matrix table
@@ -86,7 +85,7 @@ Transferring to local computer
 You will now be transferring your file to your local computer. First move into a directory that you can access (e.g. Windows used pushed, see Week2C Writing Scripts. 
    
     $ cd ~/Desktop
-    $ scp zID@katana.restech.unsw.edu.au:"/srv/scratch/zID/babs3291/transcript_counts.csv" .
+    $ scp zID@katana.restech.unsw.edu.au:"/srv/scratch/zID/babs3291/trimmed_fastq/transcript_counts.csv" .
     
 
 Uploading metadata and counts table to DEGUST 
@@ -112,11 +111,11 @@ d. Continue to configure settings.
         
  ![DEGUST](../assets/img/degust_screenshot2.png)
 
-***Extension Task: Why is it not recommended to have only one replicate? If you put only one replicate in a condition does DEGUST output an error message or have a change in output?***
+***Extension Task: Why is it not recommended to have only one replicate? If you put only one replicate in a condition, does DEGUST output an error message or have a change in output?***
 
 Understanding the output 
 ----------------------------
-You will see a screen similar to the screen shot below. 
+You will see a screen similar to the screenshot below. 
  ![DEGUST](../assets/img/degust_screenshot3.png)
 
 On the LHS is a small box containing the:

@@ -118,39 +118,39 @@ Understanding the output
 You will see a screen similar to the screenshot below. 
  ![DEGUST](../assets/img/degust_screenshot3.png)
 
-On the LHS is a small box containing the:
-- **FDR (False discovery rate cut-off)** - Due to probability, there is a small chance that an event will occur by chance. This is a filter to remove the background noise of events. For us the event, is differentially expressed genes, so this removes DE genes that are likely to be due to chance, and not as a result of actual biological differences between control and test samples. 
-- **abs logFC (absolute log fold change)** - this is the metric to calculate the difference between counts. Please see the theory lesson for a more indepth understanding of how this is calculated. In essense the larger the abs logFC, the larger the difference between expression of a transcript between heart and cerebellum. If abslogFC = 0, there is no difference in expression.
+On the LHS is a small box containing the following:
+- **FDR (False discovery rate cut-off)** - Due to probability, there is a small chance that an event will occur by chance. This is a filter to remove the background noise of events. For us, the event is differentially expressed genes, so this removes DE genes that are likely to be due to chance and not as a result of actual biological differences between control and test samples. 
+**abs logFC (absolute log fold change)** is the metric used to calculate the difference between counts. Please see the theory lesson for a more in-depth understanding of how this is calculated. In essence, the larger the abs logFC, the larger the difference in transcript expression between the heart and cerebellum. If abslogFC = 0, there is no difference in expression.
 - **FC relative to** - control of which condition is the *baseline*.
 
 
 There are four tabs at the top of the screen - Parallel Coordinates, MA plot, MDS plot and Volcano plot. There is too many user configured settings and output graphs  to explain all, so we are going to skip the MA plot. So, I will highlight the most pertinent graphs. For the practical writeup, you need to investigate any disease specific patterns and research the role of the most DEGs idenitfied in these figures.
 
 
-1. The MDS in MDS plot stands for multidimension scaling. It is a method to visualise the similarity or dissimalarity between each sample. We would expect the samples to cluster based on tissue. This is because we would expect the cerebellum samples to be more similar to each other than heart samples. In our MDS plot, we can see SRR306844chr1_chr3 clustering distinctly from all other samples. If not clustering well, it is an indicator of contaminated sample or confounding factor not taken into account. 
+1. The MDS in MDS plot stands for multidimension scaling. It is a method to visualise the similarity or dissimilarity between each sample. We would expect the samples to cluster based on tissue. This is because we would expect the cerebellum samples to be more similar than heart samples. In our MDS plot, SRR306844chr1_chr3 clustering distinctly from all other samples. If not clustering well, it is an indicator of the contaminated sample or confounding factor not taken into account. 
  ![DEGUST](../assets/img/mdsplot.png)
 
 
 2. The elbow plot to the right hand side of the screen displays the percentage of variance that is displayed in the MDS plot. If 1 is 100% it would mean that 100% of biological variation is described with dimension 1. In our sample, 55% of biological variance is found in dimension 1, and 15% in dimension 2. Therefore around 70% of biological variation is being displayed in the MDS plot above. 
  ![DEGUST](../assets/img/elbowplot.png)
 
-3. The volcano plot shows on the shows the -log10FDR against the logFC.  The higher the value of the -log10 FDR, the greater the confidence in the log FC being not random. The larger the logFC 
+3. The volcano plot shows on the shows the -log10FDR against the logFC.  The higher the value of the -log10 FDR, the greater the confidence in the log FC is not random. The larger the logFC 
 
 ![DEGUST](../assets/img/volcanoplot.png)
 
-Every dot represents an isoform (not a gene). This is because we are using the transcriptome as the reference and each transcript name begins with "ENST". An example of a transcript that has a negative log FC due to being highly expressed in cerebellum, relative to the `control` heart sample. It codes for a transcript of the gene [ZIC1](http://asia.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000152977;r=3:147393422-147510293) which is a member of the transcription factor C2H2-type zinc finger family that are key during developement. has been documented in medulloblastoma, a chldhood brain tumour.  
+Every dot represents an isoform (not a gene). This is because we are using the transcriptome as the reference and each transcript name begins with "ENST". An example of a transcript that has a negative log FC due to being highly expressed in the cerebellum, relative to the `control` heart sample. It codes for a transcript of the gene [ZIC1](http://asia.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000152977;r=3:147393422-147510293) which is a member of the transcription factor C2H2-type zinc finger family that are key during development. has been documented in medulloblastoma, a childhood brain tumour.  
 
 ![DEGUST](../assets/img/degust_volc.png)
 
 
-4. Parallel coordinates tab is fairly self explanatory. Each line represents an isoform, each line represents the logFC. All isoforms in the control with have a absLogFC of 0 as it is the baseline, where expression is relative to. The most useful section for this is the drag and drop to highlight transcripts of interest that are then visualised in the heatmap below, and in the csv below. 
+4. The parallel coordinates tab is fairly self-explanatory. Each line represents an isoform; each line represents the logFC. All isoforms in the control have an absLogFC of 0 as it is the baseline, where expression is relative to. The most useful section for this is the drag and drop to highlight transcripts of interest that are then visualised in the heatmap below and in the CSV below. 
 
 For example, I select the top ~100 isoforms and then download the csv. This csv will be used for further gene ontology visualisations (see Gene Ontology section). 
 
 
-These isoforms are the most upregulated genes in cerebellum relative to heart. Therefore the gene ontology results represent processes enriched in the genes found to be upregulated in the cerebellum. 
+These isoforms are the most upregulated genes in the cerebellum relative to the heart. Therefore, the gene ontology results represent processes enriched in the genes found to be upregulated in the cerebellum. 
 
-For your own analysis you can choose more/less isoforms and, upregulated or downregulated. 
+For your own analysis, you can choose more/less isoforms and upregulated or downregulated. 
 
 
 ![DEGUST](../assets/img/degust_screenshot4.png)
@@ -170,7 +170,7 @@ Please remove the final decimal points from every transcriptID by selecting Data
 3. Select other and enter in a fulls-stop (.) 
 4. Select finish
 5. Ignore the alert 
-6. Copy the list of transcripts that now should be formatted to from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
+6. Copy the list of transcripts that now should be formatted from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
 
 2. Convert transcript IDs to GeneIDs using [GO Convert Website](https://biit.cs.ut.ee/gprofiler/convert).
 Copy and paste the transcript IDs to the gene conversion. This will output genes that match isoforms of interest.
@@ -183,17 +183,19 @@ Click the little clipboard logo next to `converted alias`. This will copy all th
 ![DEGUST](../assets/img/goprofiler.png)
 
 Paste this list of geneIDs as input into gene ontology enrichment website and select run query. 
-The top most enriched GO terms will be displayed in an assortment of figures. For example, one of the top enriched processes is circulatory system development, which is unsuprising as we are looking at genes that are DE in heart samples vs cerebellum. 
+The topmost enriched GO terms will be displayed in an assortment of figures. For example, one of the top enriched processes is circulatory system development, which is unsurprising as we are looking at DE genes in heart samples vs cerebellum. 
 ![DEGUST](../assets/img/goprofileroutput.png)
 
 
 
-Note the choice of background set is key for getting accurate results. This is because frequency of genes annotated to a GO term is relative to the entire background set. [Gene Ontology Website](http://geneontology.org/docs/go-enrichment-analysis/) explains this articulately:
-**"For example, if the input list contains 10 genes and the enrichment is done for biological process in S. cerevisiae whose background set contains 6442 genes, then if 5 out of the 10 input genes are annotated to the GO term: DNA repair, then the sample frequency for DNA repair will be 5/10. Whereas if there are 100 genes annotated to DNA repair in all of the S. cerevisiae genome, then the background frequency will be 100/6442." **
+Note that choosing a background set is key to getting accurate results. This is because the frequency of genes annotated to a GO term is relative to the entire background set. [Gene Ontology Website](http://geneontology.org/docs/go-enrichment-analysis/) explains this articulately:
+
+
+**"For example, if the input list contains 10 genes and the enrichment is done for a biological process in S. cerevisiae whose background set contains 6442 genes, then if 5 out of the 10 input genes are annotated to the GO term: DNA repair, then the sample frequency for DNA repair will be 5/10. If are 100 genes annotated to DNA repair in all of the S. cerevisiae genome, then the background frequency will be 100/6442."**
 
 
 
-Please explore all of the different figures. Depending on your samples and your biological question the results could be interesting or not... 
+Please explore all of the different figures. Depending on your samples and your biological question, the results could be interesting or not... 
 
 
 

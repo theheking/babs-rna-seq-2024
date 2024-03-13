@@ -38,8 +38,8 @@ navbar-links:
     - Week 6 Flexibility Week: "practical_overview/flex_week"
     - Week 7 Using Kallisto for Pseudoalignment: "practical_overview/Week7_Alignment"
     - Week 8A Using DEGUST for Differential Expression Analysis: "practical_overview/Week8A_Differential_Expression"
-    - Week 8B Explaining DE Summary: "practical_overview/Week8B_Explaining_DE_GeneOntology"
-    - Week 8C Understanding the Theory Behind Differential Expression Analysis: "practical_overview/Week8C_Differential_Expression_Theory"
+    - Week 8B Explaining DE Summary: "practical_overview/Week8B_Explaining_DE"
+    - Week 8C Understanding the Theory Behind Differential Expression Analysis: "practical_overview/Week8C_QC_GO"
     
   Tutorial Overview:
     - Week 1: "tutorial_overview/week1"

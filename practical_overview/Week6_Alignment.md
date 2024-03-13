@@ -291,9 +291,9 @@ kallisto quant produces three output files by default:
  
  Lets have a look at what the file contains a list of abundances (counts) shows. 
 
-  ` head -n 100 abundance.tsv`
+    $ head -n 100 abundance.tsv
   
-Next you will have to calculate an abundance.tsv file for every sample.
+Next, you will have to calculate an abundance.tsv file for every sample.
 
 Step 3 For Loop to perform pseudoalignment of reads for every sample
 ========================================================================

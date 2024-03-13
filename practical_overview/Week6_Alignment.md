@@ -227,7 +227,7 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
 
 Remember to request resources using qsub (NB. you do not get online access when not on the login node) 
 
-        $ qsub -I
+        $ qsub -I -l select=1:ncpus=2:mem=8gb,walltime=3:00:00
         $ cd /srv/scratch/zID/kallisto_human_ref/
 
         
@@ -248,38 +248,43 @@ Step 2 Pseudoalignment of reads with Kallisto
 ============================================
 In this final step, we will run Kallisto on all of our files to quantify the reads. We will write a for loop to do this. Let's see our trimmed reads once again.
 
-Using your trimmed reads
+    $ cd /srv/scratch/zID/babs3291/
+    $ ls -lht trimmed_fastq
 
-    $ cd /srv/scratch/zID/babs3291/trimmed_fastq/
-  
+If any files look small, please check:
+
+    1) untrimmed FASTQ files are small. If they are: redownload from the communal fastq folder: `/srv/scratch/babs3291/`.
+    2) only the trimmed FASTQ file is small. Then rerun trimmomatic on that file. All the how-to is on previous weeks. 
+
+    
 All instructions for the commands we are using are in the Kallisto manual: https://pachterlab.github.io/kallisto/manual. Since we are using single read data, we need to provide information on the fragment length used for the library (200) and an estimate of the standard deviation for this value - here we will have to guess (20). 
 
 We need to run Kallisto on all of your files. Run the command below on one of your files. 
 
+Please change the INPUT FASTQ FILE to an example from your files.
 Single-end:
 
-
-    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844chr1_chr3.trimmed.fastq.gz"
+    $ INPUT_FASTQ="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844chr1_chr3.trimmed.fastq.gz"
  
     $ kallisto quant \
      --single\
-     --threads=8\
+     --threads=8 \
      --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
      --fragment-length=200\
      --sd=20\
      --output-dir=output\
-     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTA]
+     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
  
  
 For paired-end reads, you need two files as input.
 
-    $ INPUT_FASTA="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844*.trimmed.fastq.gz"
+    $ INPUT_FASTQ="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844*.trimmed.fastq.gz"
  
     $ kallisto quant \
      --threads=8\
-     --index=[insert_location_your_transcriptome] \
+     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
      --output-dir=output\
-     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTA}
+     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
      
      
      
@@ -290,8 +295,11 @@ kallisto quant produces three output files by default:
 - run_info.json is a json file containing information about the run
  
  Lets have a look at what the file contains a list of abundances (counts) shows. 
+     
+Find the folder which contains your 
 
-    $ head -n 100 abundance.tsv
+    $ tree
+    $ head -n 100 output/abundance.tsv
   
 Next, you will have to calculate an abundance.tsv file for every sample.
 
@@ -301,6 +309,7 @@ Like when you performed trimming, you will need to first request enough computat
 
 If you have single-end reads. 
 
+    $ cd /srv/scratch/zID/babs3291/trimmed_fastq/
     $ for infile in *.trimmed.fastq.gz
           do
           base=$(basename ${infile} trimmed.fastq.gz)
@@ -312,8 +321,7 @@ If you have single-end reads.
            --fragment-length=200\
            --sd=20\
            --output-dir=${outdir}\
-           --gtf=Homo_sapiens.GRCh38.109.gtf ${infile}
-
+           --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${infile}
       done
 
 
@@ -327,9 +335,9 @@ If you have paired-end reads. **Hint: check the string provided as the second pa
           infiles="${base}*trimmed.fastq.gz"
           kallisto quant \
            --threads=8 \
-           --index=/srv/scratch/z5342988/transcriptome_Homo_sapiens_GRCh38 \
+           --index=/srv/scratch/zID/transcriptome_Homo_sapiens_GRCh38 \
            --output-dir=${outdir} \
-           --gtf=Homo_sapiens.GRCh38.109.gtf ${infiles}
+           --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${infiles}
 
       done
 

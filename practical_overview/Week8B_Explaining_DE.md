@@ -107,8 +107,8 @@ For example, in the table above, SampleA has a greater proportion of counts asso
 
 
 
-Fold Change and Log
-========================
+Fold Change and Why We Log
+==========================
 
 Fold change can be calculated as the ratio between treatment and condition as below. However, it is limited because:
 a) the magnitude of the change is the same but in opposite directions 
@@ -124,12 +124,14 @@ After log transformation, the data's skew has been removed. As it is now symmetr
 
  ![](../assets/img/norm_after.png)
 
+Fold Change and Significance
+============================
 
 The attached picture shows that despite the same log fold change, the lower p-value is correlated with lower intragroup variability. 
 This means we can be more certain that the difference in fold change is significant.
 ![](../assets/img/expression_significance.png)
 
-Calculating the FDR is essential as we test significance across hundreds of genes and samples. A certain number of these log fold change calculations could have occurred by chance. However, by calculating the FDR, we can confidently identify the isoforms with differential expression between the brain and cerebellum.
+Calculating the false discovery rate (FDR) is essential as we test significance across hundreds of genes and samples. A certain number of these log fold change calculations could have occurred by chance. However, by calculating the FDR, we can confidently identify the isoforms with differential expression between the brain and cerebellum.
 
 This is what is displayed in our DEGUST graphs. 
 

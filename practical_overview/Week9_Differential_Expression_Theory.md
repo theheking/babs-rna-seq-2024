@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Week 9B - Theory Behind DE Analysis
+title: Week 8C - Theory Behind DE Analysis
 ---
 
- Week 9B - Theory of Differential gene expression (DGE) analysis
+ Week 8C - Theory of Differential gene expression (DGE) analysis
 ================================================================
 
 > Overview
 > --------
 > **Questions**
 > 
-> *   What calculations are actually being performed with DE?
+> *   What calculations are being performed with DE?
 >     
 > 
 > **Objectives**
@@ -133,7 +133,7 @@ Sample-level QC allows us to see how well our replicates cluster together, as we
 Gene-level QC
 -------------
 
-In addition to examining how well the samples/replicates cluster together, there are a few more QC steps. Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed. This will increase the power to detect differentially expressed genes. The genes omitted fall into three categories:
+In addition to examining how well the samples/replicates cluster together, there are a few more QC steps. Prior to differential expression analysis, it is beneficial to omit genes that have little or no chance of being detected as differentially expressed. This will increase the power to detect differentially expressed genes. The genes omitted fall into three categories:
 
 *   Genes with zero counts in all samples
 *   Genes with an extreme count outlier

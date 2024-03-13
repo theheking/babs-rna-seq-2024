@@ -46,7 +46,7 @@ navbar-links:
     - Week 2: "tutorial_overview/week2"
     - Week 3: "practical_overview/talks"
     - Week 4: "tutorial_overview/week4"
-    # - Week 5: "tutorial_overview/week5"
+    - Week 5: "tutorial_overview/week5"
 #    - Week 6: "tutorial_overview/week6"
 #    - Week 7: "tutorial_overview/week7"
 #    - Week 8: "practical_overview/ramachotti_tour"

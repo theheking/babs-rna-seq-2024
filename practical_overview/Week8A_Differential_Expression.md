@@ -95,7 +95,9 @@ Uploading metadata and counts table to DEGUST
 Open the [DEGUST homepage](https://degust.erc.monash.edu/). This is where you will upload your counts file and have a internet-based interface to understand the DEGs in your samples. Usually this would be performed manually through R analysis using DESeq2 or limma (the package that is automated on this website). 
 
 a. Click **Upload your counts file**
+
 b. Click **Choose file** and select your `transcripts_counts.csv` file and select **Upload**.
+
 c. Now we must configure the correct settings.
         - Write in the name of your project
         - Input type as RNA-seq counts
@@ -104,10 +106,14 @@ c. Now we must configure the correct settings.
         
  ![DEGUST](../assets/img/degust_screenshot1.png)
 
+
+
 d. Continue to configure settings. 
         - Min Gene Count to 2 and min sample number to 2. As you are only looking at a subset of chromosomes then, you need to remove the noise.
         - Select the replicates for each condition. This is what will be in the original metadata file found in Practical Overview --> Sample Datasets --> SraRunTable File.
         - For each condition, choose the relevant samples. At the moment, please just select the control and test conditions. In section 5, you can also include confounding effects.  
+
+
         
  ![DEGUST](../assets/img/degust_screenshot2.png)
 

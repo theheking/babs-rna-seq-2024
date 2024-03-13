@@ -115,14 +115,15 @@ a) the magnitude of the change is the same but in opposite directions
 b) it is challenging to make a plot that shows 7 and 0.14 
 
  ![](../assets/img/norm_before.png)
-
+*Plot by Daisy Kavanagh*
 
 This is why we use log for normalisation. 
 ![](../assets/img/lognorm.png)
 
-After log transformation, the data's skew has been removed. As it is now symmetrical, changes of the same magnitude differ only by sign. In fact, any base can be used for the log to achieve this, but the standard in RNA-seq is Log2, as it is most easy to interpret. A log2FC of 1 represents a doubling of the counts. It is also useful for  statistical tests later in the analysis and visualisation.
+After log transformation, the skew of the data has been removed. As it is now symmetrical, changes of the same magnitude differ only by sign. In fact any base can be used for the log to achieve this, but the standard in RNA-seq is Log2, as it is most easy to interpret. A log2FC of 1 represents a doubling of the counts
 
  ![](../assets/img/norm_after.png)
+*Plot by Daisy Kavanagh*
 
 Fold Change and Significance
 ============================

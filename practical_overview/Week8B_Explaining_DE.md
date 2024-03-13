@@ -137,6 +137,13 @@ This is what is displayed in our DEGUST graphs.
 
 
 
+What Calculations Are Used in DEGUST Graphs
+====================================
+- Small Transcript plots in the right-hand corner- displays the CPM
+- Volcano plot - displays logFC on the x-axis against -log10FDR. 
+Calculating the negative logarithm of the FDR means the most significantly differentially expressed genes have a higher -log10FDR value.
+![](../assets/img/volcanoplot.png)
+- Parallel Coordinates - displays logFC
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Week 9 - Differential Expression Analysis
+title: Week  - Differential Expression Analysis
 ---
 
 Week 9 - Differential gene expression (DGE) analysis

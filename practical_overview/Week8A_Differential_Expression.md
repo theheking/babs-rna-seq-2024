@@ -174,17 +174,17 @@ Gene ontology is a tool used to understand the molecular function, biological pr
         
 ![DEGUST](../assets/img/excel.png)
         
-a. Select Text to Columns
+ a. Select Text to Columns
 
-b. Select delimited 
+ b. Select delimited 
 
-c. Select other and enter in a fulls-stop (.) 
+ c. Select other and enter in a fulls-stop (.) 
 
-d. Select finish
+ d. Select finish
 
-e. Ignore the alert 
+ e. Ignore the alert 
 
-f. Copy the list of transcripts that now should be formatted from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
+ f. Copy the list of transcripts that now should be formatted from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
 
 2. Convert transcript IDs to GeneIDs using [GO Convert Website](https://biit.cs.ut.ee/gprofiler/convert). Copy and paste the transcript IDs to the gene conversion. This will output genes that match isoforms of interest. Select ENSG as the Target Namespace. Click the little clipboard logo next to `converted alias`. This will copy all the gene names to your clipboard. 
 

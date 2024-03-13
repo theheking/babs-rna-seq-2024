@@ -127,14 +127,17 @@ On the LHS is a small box containing the following:
 There are four tabs at the top of the screen - Parallel Coordinates, MA plot, MDS plot and Volcano plot. There is too many user configured settings and output graphs  to explain all, so we are going to skip the MA plot. So, I will highlight the most pertinent graphs. For the practical writeup, you need to investigate any disease specific patterns and research the role of the most DEGs idenitfied in these figures.
 
 
-1. The MDS in MDS plot stands for multidimension scaling. It is a method to visualise the similarity or dissimilarity between each sample. We would expect the samples to cluster based on tissue. This is because we would expect the cerebellum samples to be more similar than heart samples. In our MDS plot, SRR306844chr1_chr3 clustering distinctly from all other samples. If not clustering well, it is an indicator of the contaminated sample or confounding factor not taken into account. 
+        1. The MDS in MDS plot stands for multidimension scaling. It is a method to visualise the similarity or dissimilarity between each sample. We would expect the samples to cluster based on tissue. This is because we would expect the cerebellum samples to be more similar than heart samples. In our MDS plot, SRR306844chr1_chr3 clustering distinctly from all other samples. If not clustering well, it is an indicator of the contaminated sample or confounding factor not taken into account. 
  ![DEGUST](../assets/img/mdsplot.png)
 
 
-2. The elbow plot to the right hand side of the screen displays the percentage of variance that is displayed in the MDS plot. If 1 is 100% it would mean that 100% of biological variation is described with dimension 1. In our sample, 55% of biological variance is found in dimension 1, and 15% in dimension 2. Therefore around 70% of biological variation is being displayed in the MDS plot above. 
+
+        2. The elbow plot to the right hand side of the screen displays the percentage of variance that is displayed in the MDS plot. If 1 is 100% it would mean that 100% of biological variation is described with dimension 1. In our sample, 55% of biological variance is found in dimension 1, and 15% in dimension 2. Therefore around 70% of biological variation is being displayed in the MDS plot above. 
  ![DEGUST](../assets/img/elbowplot.png)
 
-3. The volcano plot shows on the shows the -log10FDR against the logFC.  The higher the value of the -log10 FDR, the greater the confidence in the log FC is not random. The larger the logFC 
+
+
+        3. The volcano plot shows on the shows the -log10FDR against the logFC.  The higher the value of the -log10 FDR, the greater the confidence in the log FC is not random. The larger the logFC 
 
 ![DEGUST](../assets/img/volcanoplot.png)
 
@@ -143,7 +146,7 @@ Every dot represents an isoform (not a gene). This is because we are using the t
 ![DEGUST](../assets/img/degust_volc.png)
 
 
-4. The parallel coordinates tab is fairly self-explanatory. Each line represents an isoform; each line represents the logFC. All isoforms in the control have an absLogFC of 0 as it is the baseline, where expression is relative to. The most useful section for this is the drag and drop to highlight transcripts of interest that are then visualised in the heatmap below and in the CSV below. 
+        4. The parallel coordinates tab is fairly self-explanatory. Each line represents an isoform; each line represents the logFC. All isoforms in the control have an absLogFC of 0 as it is the baseline, where expression is relative to. The most useful section for this is the drag and drop to highlight transcripts of interest that are then visualised in the heatmap below and in the CSV below. 
 
 For example, I select the top ~100 isoforms and then download the csv. This csv will be used for further gene ontology visualisations (see Gene Ontology section). 
 
@@ -161,37 +164,35 @@ Exploring Gene Ontology Analysis
 -----------------------------------
 Gene ontology is a tool used to understand the molecular function, biological process and cellular components of the genes that are differentially expressed across conditions. 
 
-1. Create a list of transcript IDs. 
-After selecting download csv, you should open your csv in either Google Sheets or Microsoft Excel. 
+        1. Create a list of transcript IDs. After selecting download csv, you should open your csv in either Google Sheets or Microsoft Excel. Please remove the final decimal points from every transcriptID by selecting Data to Columns and using "." as the delimiter. I will show you how remove the decimal points in Excel as that is my system default. 
+        
 ![DEGUST](../assets/img/excel.png)
-Please remove the final decimal points from every transcriptID by selecting Data to Columns and using "." as the delimiter. I will show you how remove the decimal points in Excel as that is my system default. 
-1. Select Text to Columns
-2. Select delimited 
-3. Select other and enter in a fulls-stop (.) 
-4. Select finish
-5. Ignore the alert 
-6. Copy the list of transcripts that now should be formatted from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
+        
+        a. Select Text to Columns
+        b. Select delimited 
+        c. Select other and enter in a fulls-stop (.) 
+        d. Select finish
+        e. Ignore the alert 
+        f. Copy the list of transcripts that now should be formatted from a list of transcript IDs such as ENST00000497275.5 to ENST00000497275. 
 
-2. Convert transcript IDs to GeneIDs using [GO Convert Website](https://biit.cs.ut.ee/gprofiler/convert).
-Copy and paste the transcript IDs to the gene conversion. This will output genes that match isoforms of interest.
+        2. Convert transcript IDs to GeneIDs using [GO Convert Website](https://biit.cs.ut.ee/gprofiler/convert). Copy and paste the transcript IDs to the gene conversion. This will output genes that match isoforms of interest. Select ENSG as the Target Namespace. Click the little clipboard logo next to `converted alias`. This will copy all the gene names to your clipboard. 
 
-Select ENSG as the Target Namespace
+        
 ![DEGUST](../assets/img/goconvert.png)
-Click the little clipboard logo next to `converted alias`. This will copy all the gene names to your clipboard. 
 
-3. Find gene ontology profile using [GO ontology profile](https://biit.cs.ut.ee/gprofiler/gost).
+        3. Find gene ontology profile using [GO ontology profile](https://biit.cs.ut.ee/gprofiler/gost).
+        
 ![DEGUST](../assets/img/goprofiler.png)
 
-Paste this list of geneIDs as input into gene ontology enrichment website and select run query. 
-The topmost enriched GO terms will be displayed in an assortment of figures. For example, one of the top enriched processes is circulatory system development, which is unsurprising as we are looking at DE genes in heart samples vs cerebellum. 
+        4. Paste this list of geneIDs as input into gene ontology enrichment website and select run query. The topmost enriched GO terms will be displayed in an assortment of figures. For example, one of the top enriched processes is circulatory system development, which is unsurprising as we are looking at DE genes in heart samples vs cerebellum. 
+
 ![DEGUST](../assets/img/goprofileroutput.png)
 
 
 
-Note that choosing a background set is key to getting accurate results. This is because the frequency of genes annotated to a GO term is relative to the entire background set. [Gene Ontology Website](http://geneontology.org/docs/go-enrichment-analysis/) explains this articulately:
-
-
-**"For example, if the input list contains 10 genes and the enrichment is done for a biological process in S. cerevisiae whose background set contains 6442 genes, then if 5 out of the 10 input genes are annotated to the GO term: DNA repair, then the sample frequency for DNA repair will be 5/10. If are 100 genes annotated to DNA repair in all of the S. cerevisiae genome, then the background frequency will be 100/6442."**
+        > NB Choosing the background set of geneIDs is key to getting accurate results. This is because the frequency of genes annotated to a GO term is relative to the entire background set. [Gene Ontology Website](http://geneontology.org/docs/go-enrichment-analysis/) explains this articulately:
+        
+        **"For example, if the input list contains 10 genes and the enrichment is done for a biological process in S. cerevisiae whose background set contains 6442 genes, then if 5 out of the 10 input genes are annotated to the GO term: DNA repair, then the sample frequency for DNA repair will be 5/10. If are 100 genes annotated to DNA repair in all of the S. cerevisiae genome, then the background frequency will be 100/6442."**
 
 
 
@@ -199,5 +200,4 @@ Please explore all of the different figures. Depending on your samples and your 
 
 
 
-
-Beginning section Edited from [Training-modules](https://github.com/hbctraining/Training-modules) 
+First section adapted from [Training-modules](https://github.com/hbctraining/Training-modules) 

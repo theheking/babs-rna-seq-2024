@@ -241,7 +241,7 @@ First, we must load Kallisto to our session using `module load` as this is not i
 
 Next, run the indexing command. This prepares the transcriptome so that we can pseudoalign reads to it.
   
-    $ kallisto index --index=transcriptome_Homo_sapiens_GRCh38 kallisto_human_ref/Homo_sapiens.GRCh38.cdna.all.fa.gz
+    $ kallisto index --index=transcriptome_Homo_sapiens_GRCh38 Homo_sapiens.GRCh38.cdna.all.fa.gz
 
 
 Step 2 Pseudoalignment of reads with Kallisto

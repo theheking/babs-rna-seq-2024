@@ -107,6 +107,11 @@ For example, in the table above, SampleA has a greater proportion of counts asso
 > NB: [This video by StatQuest](http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/) shows in more detail why TPM should be used in place of RPKM/FPKM if needing to normalize for sequencing depth and gene length.
 
 
+DEGUST And its Limitations 
+=============
+
+For DEGUST, we had to use CPM. Although this accounts for library size, it does not account for RNA composition, so may be biased by a few highly differentially expressed genes as described above. Alternative methods of normalization from the R packages DESeq and edgeR are frequently used in research, but this requires some knowledge of R programming which is beyond the scope of this course.
+
 
 Fold Change and Why We Log
 ==========================
@@ -144,11 +149,15 @@ This is what is displayed in our DEGUST graphs.
 
 
 What Calculations Are Used in DEGUST Graphs
-====================================
-- Small Transcript plots in the right-hand corner- displays the CPM
-- Volcano plot - displays logFC on the x-axis against -log10FDR. 
-Calculating the negative logarithm of the FDR means the most significantly differentially expressed genes have a higher -log10FDR value.
+=======================================
+
+- Small Transcript plots in the right-hand corner- displays CPM.
+  
+- Volcano plot - displays logFC on the x-axis against -log10FDR.
+   
+- Calculating the negative logarithm of the FDR means the most significantly differentially expressed genes have a higher -log10FDR value.
 ![](../assets/img/volcanoplot.png)
+
 - Parallel Coordinates - displays logFC
 
 

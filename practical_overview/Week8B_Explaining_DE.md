@@ -1,3 +1,4 @@
+---
 layout: page
 title: Week 8B - Theory of Differential gene expression (DGE) analysis
 ---

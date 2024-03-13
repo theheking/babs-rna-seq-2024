@@ -205,19 +205,20 @@ We will now use Kallisto's indexing function to prepare the transcriptome for an
  
 First, we must download the reference files from (https://asia.ensembl.org/info/data/ftp/index.html) using `wget`
 
-1. We will need the FASTA file of the cDNA sequence
+
+  1. We will need the FASTA file of the cDNA sequence
 (https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz)
 
-
-        $ wget https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
+          $ wget https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
       
  OR, if the expected download time is ages, please copy from the communal folder.
  
       $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz /srv/scratch/zID/kallisto_human_ref/
+
       
-2. We will also need the human GTF file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
+  2. We will also need the human GTF file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
   
-        $ wget https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz 
+          $ wget https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz 
         
  OR, if the expected download time is large, please copy from the communal folder.
  

@@ -1,6 +1,5 @@
-![image](https://github.com/theheking/babs-rna-seq-2024/assets/36276388/1a02219d-2ff7-4032-955d-9d1ad52ca8a5)---
 layout: page
-title: Week 8B - Comparing Test and Control Groups
+title: Week 8B - Theory of Differential gene expression (DGE) analysis
 ---
 
  Week 8B - Theory of Differential gene expression (DGE) analysis

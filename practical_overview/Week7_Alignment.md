@@ -269,7 +269,7 @@ Single-end:
     $ INPUT_FASTQ="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844chr1_chr3.trimmed.fastq.gz"
  
     $ kallisto quant \
-     --single\
+     --single \
      --threads=8 \
      --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38 \
      --fragment-length=200 \

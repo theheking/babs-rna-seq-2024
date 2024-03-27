@@ -259,7 +259,7 @@ Please check size of files, if any look small check whether the:
   2) only the trimmed FASTQ file is small. Then rerun trimmomatic on that file. All the how-to is on previous weeks. 
 
     
-All instructions for the commands we are using are in the Kallisto manual: https://pachterlab.github.io/kallisto/manual. Since we are using single read data, we need to provide information on the fragment length used for the library (200) and an estimate of the standard deviation for this value - here we will have to guess (20). 
+All instructions for the commands we are using are in the Kallisto manual: https://pachterlab.github.io/kallisto/manual. Since with our example data we are using single read data, we need to provide information on the fragment length used for the library (200) and an estimate of the standard deviation for this value - here we will have to guess (20). 
 
 We need to run Kallisto on all of your files. Run the command below on one of your files. 
 
@@ -292,7 +292,7 @@ For paired-end reads, you need two files as input.
      
 kallisto quant produces three output files by default:
 
-- abundance.h5 is an HDF5 binary file containing run info, abundance estimates, bootstrap estimates, and transcript length information length. This file can be read by sleuth
+- abundance.h5 is an HDF5 binary file containing run info, abundance estimates, bootstrap estimates, and transcript length information length. 
 - abundance.tsv is a plaintext file of the abundance estimates. It does not contain bootstrap estimates. Please use the --plaintext mode to output plaintext abundance estimates. Alternatively, kallisto h5dump can be used to output an HDF5 file to plaintext. The first line contains a header for each column, including estimated counts, TPM, effective length.
 - run_info.json is a json file containing information about the run
  

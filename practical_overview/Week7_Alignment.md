@@ -317,12 +317,12 @@ If you have single-end reads.
           base=$(basename ${infile} .trimmed.fastq.gz)
           outdir="${base}"
           kallisto quant \
-           --single\
-           --threads=8\
-           --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
-           --fragment-length=200\
-           --sd=20\
-           --output-dir=${outdir}\
+           --single \
+           --threads=8 \
+           --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38 \
+           --fragment-length=200 \
+           --sd=20 \
+           --output-dir=${outdir} \
            --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${infile}
       done
 

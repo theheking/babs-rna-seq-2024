@@ -292,8 +292,8 @@ For paired-end reads, you need two files as input.
      
 kallisto quant produces three output files by default:
 
-- abundance.h5 is an HDF5 binary file containing run info, abundance estimates, bootstrap estimates, and transcript length information length. 
 - abundance.tsv is a plaintext file of the abundance estimates. It does not contain bootstrap estimates. Please use the --plaintext mode to output plaintext abundance estimates. Alternatively, kallisto h5dump can be used to output an HDF5 file to plaintext. The first line contains a header for each column, including estimated counts, TPM, effective length.
+- abundance.h5 is an HDF5 binary file containing run info, abundance estimates, bootstrap estimates, and transcript length information length. 
 - run_info.json is a json file containing information about the run
  
  Lets have a look at what the file contains a list of abundances (counts) shows. 

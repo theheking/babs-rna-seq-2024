@@ -77,7 +77,7 @@ Despite this, Kallisto is a quick, highly efficient software for quantifying tra
 To analyze data with Kallisto, we need several inputs:
 
 1. Trimmed and filtered FASTQ files
-2. **A Reference transcriptome**  This file has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Unlike a genome, the transcriptome contains coding genes.
+2. **A Reference transcriptome**  This file has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Whilst the genome represents the entirety of an organism's genetic material encoded in DNA, the transcriptome is limited to the set of RNA transcripts produced from the genome. 
 
 
 
@@ -225,7 +225,7 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
         $ scp  /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.109.gtf.gz /srv/scratch/zID/kallisto_human_ref/
 
 
-Remember to request resources using qsub (NB. you do not get online access when not on the login node) 
+Remember to request resources using qsub (NB. you only get online access on the login node) 
 
         $ qsub -I -l select=1:ncpus=2:mem=8gb,walltime=3:00:00
         $ cd /srv/scratch/zID/kallisto_human_ref/
@@ -251,10 +251,12 @@ In this final step, we will run Kallisto on all of our files to quantify the rea
     $ cd /srv/scratch/zID/babs3291/
     $ ls -lht trimmed_fastq
 
-If any files look small, please check:
+Please check size of files, if any look small check whether the:
 
-    1) untrimmed FASTQ files are small. If they are: redownload from the communal fastq folder: `/srv/scratch/babs3291/`.
-    2) only the trimmed FASTQ file is small. Then rerun trimmomatic on that file. All the how-to is on previous weeks. 
+  1) untrimmed FASTQ files are small. If they are: redownload from the communal fastq folder: `/srv/scratch/babs3291/`.
+  
+  
+  2) only the trimmed FASTQ file is small. Then rerun trimmomatic on that file. All the how-to is on previous weeks. 
 
     
 All instructions for the commands we are using are in the Kallisto manual: https://pachterlab.github.io/kallisto/manual. Since we are using single read data, we need to provide information on the fragment length used for the library (200) and an estimate of the standard deviation for this value - here we will have to guess (20). 

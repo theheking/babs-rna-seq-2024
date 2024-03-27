@@ -56,7 +56,7 @@ Below is a simplified figure of how pseudo-alignment would work. We use a refere
 | Reference        | Transcriptome                                                                                                   | Genome                                                                         |
 | Output           | Number of reads per transcript                                                                                  | List of reads and their coordinates across the genome                          |
 | Output file type | Transcript x Count Table                                                                                        | BAM File                                                                       |
-| Algorithm        | [Seed-searching](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html) | [K-mer](https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html) |
+| Algorithm        | [K-mer](https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html) | [Seed-searching](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/STAR_alignment_strategy.html)  |
 
 
 ![STAR](../assets/img/alignment_STAR_step1.png)
@@ -68,7 +68,7 @@ Advantages and Disadvantages of Pseudo-alignment
 - Transcript level quantification
 - Intuitive mapping of reads across multiple transcripts
 - Results limited by the quality of transcript annotation (consider different species)
-- Cannot quantify SNPs or splice variants
+- Cannot quantify SNPs or exon inclusion
 - Limited to known transcripts, not novel 
 
 
@@ -77,7 +77,7 @@ Despite this, Kallisto is a quick, highly efficient software for quantifying tra
 To analyze data with Kallisto, we need several inputs:
 
 1. Trimmed and filtered FASTQ files
-2. **A Reference transcriptome**  This file has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Unlike a genome, the transcriptome only coding genes.
+2. **A Reference transcriptome**  This file has the sequences for all the known expressed genes. Reference transcriptomes are usually available from repositories like Ensembl and NCBI. We will be using the human reference transcriptome. Unlike a genome, the transcriptome contains coding genes.
 
 
 

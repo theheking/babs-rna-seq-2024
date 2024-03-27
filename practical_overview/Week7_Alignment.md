@@ -271,10 +271,10 @@ Single-end:
     $ kallisto quant \
      --single\
      --threads=8 \
-     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
-     --fragment-length=200\
-     --sd=20\
-     --output-dir=output\
+     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38 \
+     --fragment-length=200 \
+     --sd=20 \
+     --output-dir=output \
      --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
  
  
@@ -283,9 +283,9 @@ For paired-end reads, you need two files as input.
     $ INPUT_FASTQ="/srv/scratch/zID/babs3291/trimmed_fastq/Adapter_SRR306844*.trimmed.fastq.gz"
  
     $ kallisto quant \
-     --threads=8\
-     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
-     --output-dir=output\
+     --threads=8 \
+     --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38 \
+     --output-dir=output \
      --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
      
      

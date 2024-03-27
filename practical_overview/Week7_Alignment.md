@@ -213,7 +213,7 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
       
  OR, if the expected download time is ages, please copy from the communal folder.
  
-      $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz /srv/scratch/zID/kallisto_human_ref/
+      $ scp /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.cdna.all.fa.gz .
 
       
   2. We will also need the human GTF file containing coordinates and descriptions for all gene names and locations - we will also download this from Ensembl. (https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz)  **not needed for index command**
@@ -222,7 +222,7 @@ First, we must download the reference files from (https://asia.ensembl.org/info/
         
  OR, if the expected download time is large, please copy from the communal folder.
  
-        $ scp  /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.109.gtf.gz /srv/scratch/zID/kallisto_human_ref/
+        $ scp  /srv/scratch/babs3291/references/Homo_sapiens.GRCh38.109.gtf.gz .
 
 
 Remember to request resources using qsub (NB. you only get online access on the login node) 

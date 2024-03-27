@@ -275,7 +275,7 @@ Single-end:
      --fragment-length=200\
      --sd=20\
      --output-dir=output\
-     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
+     --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
  
  
 For paired-end reads, you need two files as input.
@@ -286,7 +286,7 @@ For paired-end reads, you need two files as input.
      --threads=8\
      --index=/srv/scratch/zID/kallisto_human_ref/transcriptome_Homo_sapiens_GRCh38\
      --output-dir=output\
-     --gtf=Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
+     --gtf=/srv/scratch/zID/kallisto_human_ref/Homo_sapiens.GRCh38.109.gtf ${INPUT_FASTQ}
      
      
      
